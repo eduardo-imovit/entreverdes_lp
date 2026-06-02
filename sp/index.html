@@ -985,6 +985,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: var(--grafite-soft);
     }
 
+    .lote-card.lote-vendido {
+      opacity: 0.45;
+      pointer-events: none;
+      position: relative;
+    }
+
+    .lote-card.lote-vendido::after {
+      content: "VENDIDO";
+      position: absolute;
+      top: 32px;
+      right: 24px;
+      background: rgba(232, 89, 60, 0.15);
+      color: var(--coral);
+      border: 1px solid var(--coral);
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 8px;
+      letter-spacing: 0.1em;
+      border-radius: 2px;
+    }
+
     .lote-highlight {
       grid-column: span 2;
       background: var(--coral);
@@ -2166,7 +2188,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="lote-divider"></div>
         <p class="lote-copy">Topografia em declive. <br>O mais próximo das quadras poliesportivas. Em uma das ruas mais bonitas do condomínio.</p>
       </div>
-      <div class="lote-card reveal reveal-delay-1">
+      <div class="lote-card lote-vendido reveal reveal-delay-1">
         <div class="lote-number">02</div>
         <p class="lote-tag t-label">Testada generosa</p>
         <p class="lote-area t-display">1.439,15 m²</p>
@@ -2304,7 +2326,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <select id="lote" name="lote">
               <option value="">Selecione ou deixe em aberto</option>
               <option value="lote-01">Lote 01 · Próximo à mata</option>
-              <option value="lote-02">Lote 02 · Testada generosa</option>
+              <option value="lote-02" disabled>Lote 02 · Testada generosa (Vendido)</option>
               <option value="lote-03">Lote 03 · Vista permanente</option>
               <option value="lote-04">Lote 04 · Máxima privacidade</option>
               <option value="lote-05">Lote 05 · O maior</option>
