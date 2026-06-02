@@ -1,0 +1,594 @@
+================================================================
+ENTREVERDES — COPY REVISADA PARA O PÚBLICO CAMPINEIRO
+Orientações para o agente implementador
+URL de referência: http://entreverdes.imovit.com.br/sp/
+Versão: Campinas (famílias que querem upgrade do condomínio atual)
+================================================================
+
+------------------------------------------------------------
+BRIEFING ESTRATÉGICO (LEIA ANTES DE IMPLEMENTAR)
+------------------------------------------------------------
+
+PÚBLICO-ALVO:
+Famílias campineiras de alto padrão que JÁ moram em condomínios
+fechados da cidade (Cambuí, Nova Campinas, Alphaville Campinas,
+Notre Dame, Sítios de Recreio Gramado, etc.) e estão considerando
+fazer um upgrade de endereço para uma casa principal de outra
+categoria. Foco: residência principal, não casa de fim de semana.
+
+DIFERENÇA CRÍTICA EM RELAÇÃO À VERSÃO PAULISTANA:
+A versão paulistana atacava distância e dúvida sobre uso real.
+Para o campineiro, essas dores NÃO EXISTEM — Sousas é Campinas, e
+ele já frequenta o bairro. A nova dor a atacar é diferente:
+
+  "Vale o esforço de mudar de condomínio? Meu estilo de vida atual
+   já está bom. O que esse endereço tem que o meu não tem?"
+
+ÂNGULO CENTRAL DA COPY:
+"Você já mora bem. EntreVerdes é outra categoria — não um upgrade
+de m², um upgrade de natureza."
+
+O argumento único e verdadeiro do EntreVerdes para esse público é
+ESCALA DE NATUREZA PRESERVADA que outros condomínios urbanos de
+Campinas não conseguem entregar:
+  - Lotes de 1.200 a 2.700m² (vs 400-800m² do condomínio típico)
+  - 8.500m de trilhas em mata nativa preservada
+  - APP permanente — vista que nunca vira loteamento
+  - Distância real entre os vizinhos
+
+REGRA EDITORIAL IMPORTANTE:
+NÃO citar concorrentes pelo nome (Alphaville, Notre Dame, Gramado,
+etc.). Usar formulações genéricas como "outros condomínios fechados",
+"o condomínio típico de Campinas", "ótimos condomínios da cidade".
+A comparação é feita por estrutura (m², amenidades, vizinhança) —
+nunca por marca.
+
+ESCASSEZ:
+Mantém-se o "encerramento de projeto" e "últimas 5 oportunidades".
+Para o campineiro essa escassez pega mais fundo, porque ele
+acompanhou o condomínio amadurecer e sabe que é endereço consolidado.
+
+TOM DE VOZ:
+Sofisticado, direto, sem aspiracional vago. Pressupõe que o leitor
+já tem repertório de bom morar — e fala com ele de igual pra igual.
+Frases curtas. Itálicos pontuais. Nenhum adjetivo gratuito.
+
+------------------------------------------------------------
+ORIENTAÇÕES GERAIS DE IMPLEMENTAÇÃO
+------------------------------------------------------------
+
+ESTRUTURA VISUAL:
+- Manter integralmente a estrutura visual atual da página
+- Manter paleta de cores, fontes, logos, fotos e galeria
+- Manter todos os assets em http://entreverdes.imovit.com.br/
+- Manter o link de WhatsApp existente
+- Trocar APENAS textos conforme orientação por seção abaixo
+
+FORMATAÇÃO DE TÍTULOS:
+- Quebras de linha intencionais nos H1/H2 estão preservadas como
+  no original do briefing. Replicar no HTML com <br> ou quebras
+  de tag conforme o sistema atual.
+- Palavras em *itálico* devem ser renderizadas com <em> ou estilo
+  itálico do design system atual da página.
+
+CTAs:
+- Manter todas as âncoras existentes (#cta)
+- Manter o link de WhatsApp já presente
+- Manter o sistema de formulário tal qual está
+- AJUSTAR um campo do formulário: "Onde você mora hoje?" — opcional
+  (substitui o "De onde você está vindo?" da versão paulistana)
+
+ELEMENTOS NOVOS A CRIAR:
+- Uma seção inteiramente nova entre o hero/ancoragem e a seção
+  de território: "A categoria diferente" (com comparativo lado a
+  lado entre condomínio típico e EntreVerdes). Detalhes no bloco
+  SEÇÃO 03 abaixo.
+
+ELEMENTOS A REMOVER OU SUBSTITUIR:
+- Substituir TODOS os títulos H1/H2 da página
+- Substituir headline atual ("Onde São Paulo termina e a vida começa")
+- Substituir todas as subheadlines
+- Substituir frase "É o encerramento de um projeto..." por novo texto
+- Substituir cards de amenidades (mesma estrutura, novo texto)
+- Substituir descrições dos lotes
+- Substituir bloco de comunidade e citação do Daniel
+
+------------------------------------------------------------
+COPY POR SEÇÃO — TEXTO PRONTO PARA SUBSTITUIÇÃO
+------------------------------------------------------------
+
+SEÇÃO 01 — HERO
+================
+
+(Pré-headline — texto pequeno acima do título principal)
+Sousas · Campinas · SP
+
+(Headline H1 — manter quebras de linha visuais)
+Você já mora bem.
+*EntreVerdes
+é o passo seguinte.*
+
+(Subheadline — parágrafo abaixo do H1)
+O condomínio que muitas famílias de Campinas escolheram quando
+decidiram que qualidade de vida não era mais sobre m² construído —
+era sobre o que existe ao redor dele. Restam 5 lotes primários.
+
+(CTA principal — botão)
+Quero conhecer os 5 lotes
+
+(Texto âncora/scroll no rodapé do hero)
+Explorar
+
+
+SEÇÃO 02 — ANCORAGEM (logo abaixo do hero)
+==========================================
+
+(Substituir o bloco atual "Não é lançamento. É o encerramento...")
+
+(Linha 1)
+Não é mais um lançamento de condomínio fechado em Campinas.
+
+(Linha 2 — em itálico)
+É o encerramento de um projeto que *200 famílias da cidade já escolheram.*
+
+(Linha de assinatura abaixo — mantém estilo atual)
+5 lotes primários · curadoria Imovit
+
+
+SEÇÃO 03 — A CATEGORIA DIFERENTE (NOVA — INSERIR AQUI)
+======================================================
+
+ATENÇÃO: ESTA É UMA SEÇÃO NOVA. Não existe na página atual.
+Inserir entre a seção de ancoragem (acima) e a seção de território
+(abaixo, "O bairro que você já conhece").
+
+Sugestão visual: fundo claro neutro. O comparativo entre "condomínio
+fechado urbano" e "EntreVerdes" deve aparecer em DOIS BLOCOS lado
+a lado (em mobile, empilhados). Mantém-se a tipografia do design
+atual.
+
+(Pré-título — texto pequeno acima)
+Por que esse condomínio é outra coisa
+
+(Título H2 — manter quebras como mostradas)
+A maioria dos condomínios
+oferece mais metro quadrado.
+*EntreVerdes oferece
+mais natureza.*
+
+(Parágrafo 1)
+Campinas tem ótimos condomínios fechados. Você provavelmente mora
+num deles, ou conhece quem mora. A pergunta honesta é: o que muda
+quando você troca de endereço?
+
+(Parágrafo 2)
+Em quase todos os casos, muda a planta, o acabamento, o número de
+vagas. O ambiente ao redor — rua, vizinhança, paisagem — continua
+igual.
+
+(Parágrafo 3 — destaque)
+EntreVerdes muda o que está fora da casa.
+
+(COMPARATIVO — dois blocos lado a lado, com subtítulo em cada)
+
+BLOCO ESQUERDO:
+Subtítulo: O que o condomínio fechado urbano entrega
+  - Lotes de 400 a 800m²
+  - Áreas verdes pontuais e ajardinadas
+  - Vizinhança de muros e portões
+  - Vista para a casa de quem está em frente
+
+BLOCO DIREITO (com destaque visual — borda, fundo levemente
+diferente ou tipografia em peso maior):
+Subtítulo: O que EntreVerdes entrega
+  - Lotes de 1.200 a 2.700m²
+  - 8.500m de trilhas em mata nativa
+  - APP permanente — vista que não vira loteamento
+  - Distância real entre os vizinhos
+
+(Frase de fechamento abaixo do comparativo — em itálico, menor)
+*Não é uma escolha entre dois condomínios parecidos. É a escolha
+entre duas categorias de morar.*
+
+
+SEÇÃO 04 — TERRITÓRIO (revisada)
+=================================
+
+(Pré-título — substituir "O território")
+Sousas
+
+(Título H2 — substituir o atual "Sousas não é interior. É outra categoria.")
+O bairro que você já conhece —
+*visto por dentro.*
+
+(Parágrafo 1 — substituir o atual)
+Sousas é o endereço que campineiro de alto padrão já frequenta há
+anos: o jantar de sexta no restaurante autoral, a Hípica, o Clube
+de Golfe, o circuito gastronômico. Você sabe como é o bairro de
+fora.
+
+(Parágrafo 2 — substituir o atual)
+EntreVerdes é como ele é por dentro: a parte mais alta, mais
+arborizada e mais silenciosa de Sousas — onde a mata preservada
+começa antes do muro do condomínio terminar.
+
+(CARDS DE PROXIMIDADE — manter layout, substituir textos e ajustar
+seleção dos pontos)
+
+CARD 1 — Centro de Campinas [novo card]
+  12 minutos. A cidade que você usa todos os dias continua a
+  12 minutos.
+
+CARD 2 — Shopping Iguatemi · Galleria [texto novo]
+  Os mesmos shoppings que você já frequenta. A rota não muda — só
+  o ponto de chegada.
+
+CARD 3 — Colégio Notre Dame · Escola Comunitária [texto novo]
+  Na mesma rota do condomínio. As crianças não trocam de escola.
+
+CARD 4 — Hípica e Clube de Golfe de Campinas [unificar os dois cards]
+  Vizinhança imediata. Quem joga golfe ou anda a cavalo continua na
+  mesma rotina — só sai de casa com cinco minutos a menos no relógio.
+
+CARD 5 — Centro Médico Campinas · Hospitais de referência [novo card]
+  A infraestrutura médica de Campinas a 15 minutos. Nenhum
+  compromisso é trocado.
+
+CARD 6 — Aeroporto de Viracopos [texto novo]
+  20 minutos. Sem mudanças para quem viaja.
+
+
+SEÇÃO 05 — GALERIA VISUAL "UM LUGAR QUE MUDA"
+==============================================
+
+(Pré-título — manter)
+EntreVerdes · Sousas
+
+(Título H2 — substituir o atual)
+O que muda
+*não é o m² da casa.
+É o m² ao redor dela.*
+
+(LEGENDAS DAS FOTOS — substituir as atuais)
+
+Imagem 1 (galeria_vista_aerea.png):
+  Vista aérea · mata nativa preservada
+
+Imagem 2 (galeria_aquatico.png):
+  Complexo aquático · piscina aquecida coberta o ano todo
+
+Imagem 3 (galeria_trilhas.png):
+  8.500m de trilhas dentro do condomínio
+
+Imagem 4 (galeria_arquitetura.png):
+  Arquitetura · projeto livre, sem padrão imposto
+
+Imagem 5 (galeria_clubes.png):
+  Clubes privativos · vida social no condomínio
+
+Imagem 6 (galeria_natureza.png):
+  Vista permanente · APP que não vira loteamento
+
+
+SEÇÃO 06 — INFRAESTRUTURA / AMENITIES (revisada)
+=================================================
+
+ATENÇÃO À ORDEM. Os amenities devem aparecer na ORDEM ABAIXO,
+diferente da página atual. A nova ordem reflete escala/diferenciação
+para o campineiro (8.500m de trilhas vem primeiro, porque é o
+argumento mais forte de diferenciação). Manter o layout visual
+atual (grid de cards).
+
+(Pré-título — substituir o atual)
+Tudo que faz a diferença
+
+(Título H2 — substituir o atual "Tudo que você precisa. Nada que te distrai.")
+Amenidades você já tem.
+*Aqui, elas são
+outra escala.*
+
+(Parágrafo introdutório — substituir o atual)
+O campineiro que mora em condomínio fechado já tem piscina, academia,
+quadra. A pergunta não é se EntreVerdes tem — é em que escala. E é
+aqui que a curadoria do projeto aparece.
+
+(CARDS NA NOVA ORDEM — substituir textos)
+
+CARD 1 — 8.500 metros de trilhas [movido para o topo]
+  Trilhas dentro da mata nativa do condomínio. Não é caminho
+  asfaltado entre lotes — é mata preservada com percurso desenhado.
+  Caminhada antes do trabalho, corrida no sábado, fim de tarde com
+  a família — sem precisar de carro.
+
+CARD 2 — Complexo Aquático
+  Piscina com borda infinita e prainha, piscina infantil e piscina
+  coberta aquecida com raia de 25m. A piscina semiolímpica que
+  vira hábito nas manhãs de inverno.
+
+CARD 3 — Dois Clubes Privativos
+  Restaurante, bar, espaço gourmet, salão de festas. Sexta à noite
+  começa em casa — sem precisar pegar carro pra Sousas centro, sem
+  improvisar.
+
+CARD 4 — Estrutura esportiva completa
+  Quadras de tênis, beach tennis, vôlei de areia, poliesportivas e
+  campos de futebol. A escala que justifica o esporte rotineiro.
+
+CARD 5 — Academia integrada à mata
+  Equipamentos de alto padrão. O treino diário acontece dentro do
+  condomínio.
+
+CARD 6 — Duas hortas orgânicas
+  Produção dentro do condomínio. Detalhe pequeno — diferença real
+  na rotina de quem cozinha em casa.
+
+CARD 7 — Espaço Kids completo
+  Brinquedoteca e playgrounds separados por faixa etária. Em
+  1.000.000m² de condomínio, as crianças têm onde ir.
+
+CARD 8 — Segurança 24h [mantido por último]
+  Portaria com controle de acesso, fiação subterrânea, ronda
+  permanente. O básico de Campinas — feito no padrão que se espera
+  de um endereço deste porte.
+
+
+SEÇÃO 07 — LOTES (revisada)
+============================
+
+(Pré-título — manter)
+Curadoria exclusiva
+
+(Título H2 — substituir "Aqui você não compra um imóvel. Você projeta o seu.")
+Cinco lotes.
+*Cinco últimas chances
+de entrar nesse endereço.*
+
+(Parágrafo introdutório — substituir)
+Estes são os últimos lotes primários disponíveis dentro do
+condomínio. Não há próximos, não há fase 2. Cada um foi escolhido
+com uma família em mente — falta a família.
+
+(CARDS DOS LOTES — manter numeração e estrutura, substituir descrições)
+
+LOTE 01 · Próximo à mata · 1.200,00 m²
+Lote Z-21
+  O mais próximo da APP. Acorda com o som das nascentes. Para quem
+  entende que a vista é parte do projeto, não detalhe.
+
+LOTE 02 · Testada generosa · 1.439,15 m²
+Lote M-9
+  Para projetos com jardim que respira. Privacidade sem abrir mão
+  da luz — boa pra arquiteturas térreas, contemporâneas, com
+  integração interno-externo.
+
+LOTES 03 e 04 · Oportunidade Única · Lotes Vizinhos · 2.688,00 m²
+Lotes E1-4 e E1-5 (1.344 m² cada)
+  Topografia em declive e o trecho mais silencioso do conjunto. A
+  rara chance de unificar dois lotes vizinhos para um projeto de
+  casa principal de outra ordem — daqueles que poucas famílias na
+  cidade conseguem realizar.
+
+LOTE 05 · O maior · 1.476,00 m²
+Lote J-8
+  O maior dos remanescentes, a poucos minutos a pé do clube. Para
+  quem quer espaço sem distância do convívio.
+
+(Disclaimer abaixo — manter)
+Condições e valores apresentados pelo consultor na visita.
+
+
+SEÇÃO 08 — COMUNIDADE (revisada)
+=================================
+
+(Número de destaque — manter)
+200+
+
+(Subtítulo abaixo do número — manter formato)
+famílias que já
+escolheram este endereço
+
+(Pré-título — manter)
+A comunidade
+
+(Título H2 — substituir o atual)
+200 famílias de Campinas
+*já escolheram este endereço.*
+
+(Parágrafo 1 — substituir o atual)
+Médicos, empresários, executivos, advogados, sócios de escritório —
+em grande parte famílias da própria cidade. Pessoas que moravam em
+ótimos condomínios e fizeram a mesma pergunta que você está fazendo
+agora: *vale trocar o que já está bom por algo de outra ordem?*
+
+(Parágrafo 2 — substituir o atual)
+Decidiram que sim. E construíram aqui o endereço que pretendem
+deixar para a geração seguinte.
+
+(Linha de fechamento)
+EntreVerdes está nas suas últimas 5 oportunidades de entrada.
+
+(DEPOIMENTO PRINCIPAL — manter)
+"Eu cheguei no lote, fiquei em silêncio por dois minutos, e já
+sabia. A única dúvida era por que eu tinha esperado tanto."
+— Morador · EntreVerdes
+
+(DEPOIMENTOS ADICIONAIS — SUGESTÃO PARA ADICIONAR)
+
+ATENÇÃO IMPLEMENTADOR: os dois depoimentos abaixo são SUGESTÕES
+ilustrativas. NÃO PUBLICAR como reais. Solicitar à Imovit
+depoimentos verdadeiros de moradores campineiros (ideal: famílias
+que vieram de outros condomínios fechados da cidade) antes de
+incluir. Se não houver depoimentos reais disponíveis, manter apenas
+o depoimento principal acima.
+
+[SUGESTÃO — substituir por depoimento real]
+"Já morávamos em condomínio em Campinas há doze anos. Achávamos que
+estávamos bem servidos. EntreVerdes mostrou que era possível morar
+de outro jeito — sem sair da cidade."
+— Família · moradores há 4 anos
+
+[SUGESTÃO — substituir por depoimento real]
+"O que me convenceu não foi o lote. Foi caminhar 40 minutos pela
+trilha numa segunda de manhã e perceber que aquilo era a minha casa."
+— Empresário · Campinas
+
+(Selo abaixo — manter)
+5 lotes disponíveis agora
+
+
+SEÇÃO 09 — CITAÇÃO DANIEL ARANOVICH (revisada)
+===============================================
+
+(Manter foto Daniel.jpg)
+
+(Citação — substituir a atual)
+"Quem mora bem em Campinas sabe reconhecer quando encontra algo
+que está em outra categoria. EntreVerdes não compete com outros
+condomínios da cidade — ele entrega o que nenhum outro consegue:
+escala de natureza preservada dentro de Campinas. É por isso que
+vende."
+
+(Assinatura — manter)
+Daniel Aranovich
+Diretor · Imovit Hub
+
+
+SEÇÃO 10 — CTA FINAL / FORMULÁRIO (revisada)
+=============================================
+
+(Pré-título — manter)
+Visita exclusiva
+
+(Título H2 — substituir "Agende uma visita. Duas horas que mudam o que você quer da vida.")
+Venha conhecer
+*o que está
+do outro lado da portaria.*
+
+(Parágrafo descritivo — substituir o atual)
+A visita ao EntreVerdes é diferente do que você está acostumado em
+outros lançamentos. Não é stand de vendas com café e maquete — é o
+lote, a mata, o clube em funcionamento, as 200 famílias morando ao
+redor. Duas horas que respondem todas as perguntas que faltam.
+
+(Linhas em itálico — substituir as atuais)
+*Sem compromisso. Sem fila de espera.
+Só você, um consultor e o lugar.*
+
+(CAMPOS DO FORMULÁRIO — manter os existentes e AJUSTAR um)
+
+  Campo 1 — Nome (manter)
+  Campo 2 — WhatsApp (manter)
+  Campo 3 — E-mail (manter se já existir; senão, adicionar)
+  Campo 4 — [AJUSTADO] Onde você mora hoje?
+            (campo opcional, texto livre ou dropdown com bairros
+            de Campinas. Subtexto abaixo: "opcional · ajuda o
+            consultor a preparar a visita")
+  Campo 5 — Qual lote te interessou? (manter, com as opções atuais)
+
+(BOTÃO SUBMIT — manter ou ajustar texto)
+Quero agendar minha visita
+
+(Texto secundário abaixo do botão — manter conceito, ajustar)
+Prefere falar agora? Chame nossa equipe no WhatsApp →
+(link existente: https://wa.me/551971237841?text=Olá,%20tenho%20interesse%20em%20conhecer%20o%20EntreVerdes.)
+
+
+SEÇÃO 11 — RODAPÉ
+==================
+
+(Selo principal — substituir)
+5 lotes primários · curadoria Imovit · Sousas, Campinas, SP
+
+(Endereço — manter)
+Av. Rotary, 134 - Vila Brandina, Campinas - SP, 13092-509 · imovit.com.br
+
+(CTA do rodapé — manter)
+Agendar visita exclusiva →
+
+(Link WhatsApp do rodapé — manter)
+
+
+------------------------------------------------------------
+META TAGS (atualizar para SEO e compartilhamento social)
+------------------------------------------------------------
+
+<title>EntreVerdes — Outra categoria de morar em Campinas · Imovit</title>
+
+<meta name="description" content="5 lotes primários em Sousas, Campinas. O condomínio fechado que 200 famílias da cidade escolheram quando decidiram que qualidade de vida era sobre o que existe ao redor da casa, não dentro dela.">
+
+<meta property="og:title" content="Você já mora bem. EntreVerdes é o passo seguinte.">
+<meta property="og:description" content="200 famílias de Campinas já escolheram este endereço. Restam 5 lotes em Sousas.">
+
+
+------------------------------------------------------------
+CHECKLIST DE QA APÓS IMPLEMENTAÇÃO
+------------------------------------------------------------
+
+[ ] Todas as 11 seções foram atualizadas conforme orientação
+[ ] A nova seção "A categoria diferente" foi inserida entre a
+    ancoragem e a seção de território
+[ ] O comparativo lado a lado (condomínio típico vs EntreVerdes)
+    renderiza corretamente em desktop (lado a lado) e mobile
+    (empilhado)
+[ ] Os 8 cards de amenities estão na nova ordem (Trilhas 8.500m
+    vem 1º, Segurança vem por último)
+[ ] O card "Centro de Campinas" foi adicionado na seção de
+    território
+[ ] O card "Hospitais de referência" foi adicionado na seção de
+    território
+[ ] O campo "Onde você mora hoje?" foi ajustado no formulário
+    (opcional)
+[ ] Depoimentos sugestivos foram REMOVIDOS ou SUBSTITUÍDOS por
+    depoimentos reais (NÃO publicar os exemplos do briefing)
+[ ] Nenhum concorrente foi mencionado pelo nome em nenhum ponto
+    da página
+[ ] Meta tags atualizadas
+[ ] Todos os assets (imagens, logos) continuam funcionando
+[ ] Links de WhatsApp e âncoras #cta continuam funcionando
+[ ] Mobile responsivo testado em 375px
+[ ] Os textos em *itálico* renderizam corretamente
+[ ] As quebras de linha intencionais nos H1 e H2 estão preservadas
+
+
+------------------------------------------------------------
+SUGESTÕES DE TESTE A/B (FASE PÓS-LANÇAMENTO)
+------------------------------------------------------------
+
+HEADLINE — testar duas variações em ads pagos:
+  A) "Você já mora bem. EntreVerdes é o passo seguinte."
+     (ataca o "porquê trocar" — mais forte com audiência morna)
+  B) "Outra categoria de morar em Campinas."
+     (afirmação direta — pode performar melhor em tráfego frio
+     segmentado por geolocalização de Campinas)
+
+COMPARATIVO — testar com e sem números explícitos:
+  A) "Lotes de 400 a 800m² vs Lotes de 1.200 a 2.700m²"
+     (especificidade vence)
+  B) "Lotes médios vs Lotes generosos"
+     (versão mais sutil, sem confronto direto)
+
+CTA — testar:
+  A) "Quero conhecer os 5 lotes" (foco em escassez)
+  B) "Agendar minha visita" (foco em ação concreta)
+
+
+------------------------------------------------------------
+DIFERENÇAS-CHAVE EM RELAÇÃO À VERSÃO PAULISTANA
+(para referência rápida do implementador, caso esteja gerenciando
+as duas páginas ou versões A/B por geolocalização)
+------------------------------------------------------------
+
+  ASPECTO              | VERSÃO PAULISTANA      | VERSÃO CAMPINEIRA
+  ---------------------|------------------------|---------------------
+  Dor central          | "Vou usar mesmo?"      | "Vale o esforço?"
+  Ângulo               | Proximidade real       | Outra categoria
+  Comparativo          | vs cidades distantes   | vs cond. fechados
+  Seção nova           | Matemática (tempos)    | Categoria (escala)
+  Tom                  | Descoberta             | Repertório
+  Posicionamento       | Casa de campo / 2ª     | Residência principal
+  Headline             | "vai usar de verdade"  | "passo seguinte"
+
+
+------------------------------------------------------------
+FIM DO DOCUMENTO
+================================================================

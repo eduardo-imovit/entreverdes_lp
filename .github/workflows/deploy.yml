@@ -1,0 +1,22 @@
+name: Pipeline de Deploy — Entreverdes LP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  production-deploy:
+    name: Carga de Arquivos para Produção
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 1. Extração — Baixando código do Repositório
+      uses: actions/checkout@v4
+
+    - name: 2. Carga — Transmitindo para o Servidor Locaweb
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.LOCAWEB_FTP_SERVER }}
+        username: ${{ secrets.LOCAWEB_FTP_USERNAME }}
+        password: ${{ secrets.LOCAWEB_FTP_PASSWORD }}

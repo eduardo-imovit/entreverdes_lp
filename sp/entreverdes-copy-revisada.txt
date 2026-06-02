@@ -1,0 +1,547 @@
+================================================================
+ENTREVERDES — COPY REVISADA PARA O PÚBLICO PAULISTANO
+Orientações para o agente implementador
+URL de referência: http://entreverdes.imovit.com.br/sp/
+================================================================
+
+------------------------------------------------------------
+BRIEFING ESTRATÉGICO (LEIA ANTES DE IMPLEMENTAR)
+------------------------------------------------------------
+
+PÚBLICO-ALVO REVISADO:
+Moradores de São Paulo capital, perfil de alto padrão, que cogitam
+adquirir uma casa de campo em Sousas/Campinas. O público é misto
+em dois eixos:
+
+  1. INTENÇÃO DE USO: pode ser segunda residência (fim de semana)
+     OU mudança definitiva — a copy deve servir aos dois sem
+     forçar a escolha.
+
+  2. PERFIL DE VIDA: famílias com filhos, casais 45-60 com filhos
+     crescidos, empresários/executivos buscando refúgio. A copy
+     evita segmentar demais e fala com todos esses momentos.
+
+DORES SILENCIOSAS A NEUTRALIZAR (em ordem de prioridade):
+  1. "Vou usar mesmo? Ou vai virar despesa parada?"
+     (medo nº1 — atacado na nova seção de proximidade)
+  2. "Vou pegar 3h de estrada toda sexta?"
+     (atacado com comparativo de tempo de viagem)
+  3. "Interior é bonito, mas tem infraestrutura?"
+     (atacado nos cards de Sousas — hospitais, colégios, Iguatemi)
+
+ÂNGULO CENTRAL DA NOVA COPY:
+"Perto de São Paulo, mas com cara de interior de verdade."
+NÃO é luxo. NÃO é sofisticação. É proximidade que torna o uso real.
+
+PRINCIPAL MUDANÇA DE GATILHO:
+A copy antiga usava "encerramento de projeto" como escassez.
+A nova usa "última chance de entrar num endereço fechado" — porque
+para paulistano de alto padrão, FOMO de endereço funciona melhor
+que escassez de lote.
+
+TOM DE VOZ:
+Sofisticado mas direto. Menos aspiracional-poético, mais decisivo.
+Frases curtas. Itálicos pontuais para ritmo, nunca para decoração.
+Evitar adjetivos vazios ("incrível", "exclusivo", "único").
+
+------------------------------------------------------------
+ORIENTAÇÕES GERAIS DE IMPLEMENTAÇÃO
+------------------------------------------------------------
+
+ESTRUTURA VISUAL:
+- Manter integralmente a estrutura visual atual da página
+- Manter paleta de cores, fontes, logos, fotos e galeria
+- Manter todos os assets em http://entreverdes.imovit.com.br/
+- Manter o link de WhatsApp existente
+- Trocar APENAS textos conforme orientação por seção abaixo
+
+FORMATAÇÃO DE TÍTULOS:
+- Quebras de linha intencionais estão marcadas com dois espaços
+  no final da linha (padrão Markdown) OU mantidas como estão
+  no original quando a estrutura visual atual já fizer essa
+  quebra. Replicar no HTML usando <br> ou quebras de tag.
+- Palavras em *itálico* devem ser renderizadas com <em> ou estilo
+  itálico do design system atual da página.
+
+CTAs:
+- Manter todas as âncoras existentes (#cta)
+- Manter o link de WhatsApp já presente
+- Manter o sistema de formulário tal qual está
+- ADICIONAR um campo novo no formulário: "De onde você está vindo?"
+  com 3 opções: São Paulo capital / Interior / Outra cidade
+
+ELEMENTOS NOVOS A CRIAR:
+- Uma seção inteiramente nova entre o hero/ancoragem e a seção
+  de território: "A matemática da casa de campo" (com tabela
+  comparativa de tempos de viagem). Detalhes no bloco SEÇÃO 03
+  abaixo.
+- Campo novo no formulário (detalhado acima)
+
+ELEMENTOS A REMOVER OU SUBSTITUIR:
+- Substituir headline atual ("Onde São Paulo termina e a vida começa")
+- Substituir subheadline atual
+- Substituir frase "É o encerramento de um projeto..." por novo texto
+- Substituir a seção de comunidade (reposicionar para falar com
+  o paulistano que está chegando)
+
+------------------------------------------------------------
+COPY POR SEÇÃO — TEXTO PRONTO PARA SUBSTITUIÇÃO
+------------------------------------------------------------
+
+SEÇÃO 01 — HERO
+================
+
+(Pré-headline — texto pequeno acima do título principal)
+Sousas · Campinas · SP · 1h de São Paulo pela Anhanguera
+
+(Headline H1 — manter quebras de linha visuais como no original)
+A casa de campo
+que você vai usar
+*de verdade.*
+
+(Subheadline — parágrafo abaixo do H1)
+Sexta à noite você sai de São Paulo. Domingo de manhã ainda está
+na trilha, sem ter passado uma hora no trânsito. EntreVerdes é o
+condomínio que torna ter uma segunda casa — ou trocar a primeira —
+uma decisão que faz sentido. Restam 5 lotes.
+
+(CTA principal — botão)
+Quero conhecer os 5 lotes
+
+(Texto âncora/scroll no rodapé do hero)
+Explorar
+
+
+SEÇÃO 02 — ANCORAGEM (logo abaixo do hero)
+==========================================
+
+(Substituir o bloco atual "Não é lançamento. É o encerramento...")
+
+(Linha 1 — mantém formato de subtítulo)
+Não é mais um lançamento de condomínio de campo.
+
+(Linha 2 — em itálico)
+É a chance final de entrar num endereço que *200 famílias já fecharam.*
+
+(Linha de assinatura abaixo — mantém estilo atual)
+5 lotes primários · curadoria Imovit
+
+
+SEÇÃO 03 — A MATEMÁTICA DA CASA DE CAMPO (NOVA — INSERIR AQUI)
+==============================================================
+
+ATENÇÃO: ESTA É UMA SEÇÃO NOVA. Não existe na página atual.
+Inserir entre a seção de ancoragem (acima) e a seção de território
+(abaixo, "Sousas não é interior").
+
+Sugestão visual: fundo claro neutro, tabela comparativa em destaque,
+mantendo a tipografia do design atual.
+
+(Pré-título — texto pequeno acima)
+A matemática da casa de campo
+
+(Título H2 — manter quebras como mostradas)
+Casa de campo só vale
+*se você chegar lá.*
+
+(Parágrafo 1)
+A maioria dos condomínios de campo do interior paulista está a 2h,
+3h, às vezes 4h de São Paulo. Resultado conhecido: a casa fica
+parada. Vira despesa. Vira culpa.
+
+(Parágrafo 2 — destaque "57 minutos" em negrito)
+Sousas é diferente. **57 minutos do Pacaembu pela Anhanguera.** É a
+distância que cabe numa sexta à noite sem briga com a família — e
+que ainda dá pra fazer um sábado de manhã quando bate aquela
+vontade no meio da semana.
+
+(Tabela comparativa — renderizar como tabela visual ou cards)
+
+  Destino                              | Tempo médio (sem trânsito)
+  -------------------------------------|---------------------------
+  EntreVerdes (Sousas)                 | ~57 min   [DESTAQUE]
+  Itu / São Roque                      | 1h10 – 1h30
+  Atibaia                              | 1h20
+  Joanópolis / Bragança                | 1h40 – 2h
+  Campos do Jordão                     | 2h30 – 3h
+  Fazenda Boa Vista (Porto Feliz)      | 1h30 – 2h
+
+(Frase de fechamento abaixo da tabela — em itálico, menor)
+*Distância faz a diferença entre uma casa que vive — e uma casa
+que espera você.*
+
+
+SEÇÃO 04 — TERRITÓRIO (revisada)
+=================================
+
+(Pré-título — manter posição atual)
+O território
+
+(Título H2 — substituir o atual "Sousas não é interior. É outra categoria.")
+Sousas tem o interior
+*sem ter "cara de interior".*
+
+(Parágrafo 1 — substituir o atual)
+Quando o paulistano pensa em casa de campo, pensa em sair da cidade.
+O ponto cego é descobrir que dá pra sair da cidade *sem perder a
+cidade.*
+
+(Parágrafo 2 — substituir o atual)
+Sousas é um distrito sofisticado de Campinas — a 12 minutos do
+centro, na rota dos melhores colégios, do Iguatemi, da Hípica, do
+Clube de Golfe. Ou seja: você troca o sufoco de São Paulo pela mata
+preservada, mas continua a 15 minutos de tudo que precisa. Inclusive
+para quem quer migrar de vez e não abrir mão da infraestrutura
+urbana.
+
+(CARDS DE PROXIMIDADE — REORDENAR E SUBSTITUIR TEXTOS)
+Manter o mesmo layout visual dos cards atuais. Atualizar conforme
+abaixo. ATENÇÃO: foi ADICIONADO um card novo (Hospitais) e ajustada
+a ordem.
+
+CARD 1 — Hospitais de referência · Centro Médico Campinas [NOVO]
+  Para quem migra de vez ou passa a maior parte do tempo aqui —
+  atendimento de São Paulo, a 15 minutos.
+
+CARD 2 — Colégio Notre Dame · Escola Comunitária [texto novo]
+  Se a ideia for trocar a rotina da família por aqui — uma das
+  melhores escolas do interior está na mesma rota do condomínio.
+
+CARD 3 — Shopping Iguatemi Campinas [texto novo]
+  As mesmas marcas que você frequenta nos Jardins. A 12 minutos.
+
+CARD 4 — Hípica de Campinas · Clube de Golfe [unificar os dois cards atuais]
+  Para quem traz o esporte da capital. Vizinhança imediata.
+
+CARD 5 — Circuito gastronômico de Sousas [texto novo]
+  Restaurantes autorais e cantinas que valem o jantar de sexta —
+  sem precisar voltar pra cidade.
+
+CARD 6 — Aeroporto de Viracopos [texto novo]
+  20 minutos. Para quem precisa pegar voo na segunda de manhã e
+  estar no escritório em SP no almoço.
+
+
+SEÇÃO 05 — GALERIA VISUAL "UM LUGAR QUE MUDA"
+==============================================
+
+(Pré-título — manter)
+EntreVerdes · Sousas
+
+(Título H2 — substituir o atual "Um lugar que muda o que você quer da vida")
+Um lugar que muda
+*o ritmo de quem chega.*
+
+(LEGENDAS DAS FOTOS — substituir as atuais)
+
+Imagem 1 (galeria_vista_aerea.png):
+  Vista aérea · mata preservada
+
+Imagem 2 (galeria_aquatico.png):
+  Complexo aquático · piscina aquecida coberta o ano todo
+
+Imagem 3 (galeria_trilhas.png):
+  8.500m de trilhas dentro do condomínio
+
+Imagem 4 (galeria_arquitetura.png):
+  Arquitetura · projeto livre, do seu jeito
+
+Imagem 5 (galeria_clubes.png):
+  Clubes privativos · o fim de semana sem sair daqui
+
+Imagem 6 (galeria_natureza.png):
+  Vista permanente · APP que não vira loteamento
+
+
+SEÇÃO 06 — INFRAESTRUTURA / AMENITIES (revisada — reordenada)
+==============================================================
+
+ATENÇÃO À ORDEM. Os amenities devem aparecer na ORDEM ABAIXO,
+diferente da página atual. A nova ordem reflete relevância de uso
+para o paulistano. Manter o layout visual atual (grid de cards).
+
+(Pré-título — substituir o atual)
+Tudo que faz a casa ser usada
+
+(Título H2 — substituir o atual "Tudo que você precisa. Nada que te distrai.")
+Por que essa casa
+*vai sair do papel
+e entrar na sua agenda.*
+
+(Parágrafo introdutório — substituir o atual)
+A diferença entre uma casa de campo que vira segunda casa de verdade
+e uma que vira foto antiga no celular está nos detalhes do dia a dia.
+EntreVerdes foi pensado para quem vai viver aqui — todo fim de
+semana, ou todo dia.
+
+(CARDS NA NOVA ORDEM — substituir textos)
+
+CARD 1 — Dois Clubes Privativos [movido de baixo para o topo]
+  Restaurante, bar, espaço gourmet, salão de festas. Sexta à noite
+  começa aqui — sem precisar pegar carro de novo, sem ter que
+  improvisar jantar depois da estrada.
+
+CARD 2 — Complexo Aquático
+  Piscina com borda infinita, piscina infantil e — o detalhe que
+  muda tudo — piscina coberta aquecida com raia de 25m. Inverno
+  também é fim de semana.
+
+CARD 3 — 8.500 metros de trilhas
+  Caminhada e corrida dentro da mata preservada. Sábado de manhã
+  sem precisar de carro, sem disputar espaço com ninguém.
+
+CARD 4 — Estrutura esportiva completa
+  Quadras de tênis, beach tennis, vôlei de areia, poliesportivas e
+  campos de futebol. Tudo que você marca em SP e desmarca por causa
+  do trânsito — aqui acontece.
+
+CARD 5 — Academia integrada à mata
+  Equipamentos de alto padrão. Para quem migra de vez, o treino da
+  semana acontece aqui. Para quem vem só no fim de semana, o sábado
+  pela manhã acontece aqui.
+
+CARD 6 — Duas hortas orgânicas
+  Produção dentro do condomínio. O domingo de almoço fica mais
+  bonito quando o tomate veio de dois quarteirões dali.
+
+CARD 7 — Espaço Kids completo
+  Brinquedoteca e playgrounds por faixa etária. As crianças
+  desaparecem por horas dentro do condomínio — e você sabe
+  exatamente onde estão.
+
+CARD 8 — Segurança 24h [movido para o final]
+  Portaria com controle de acesso, fiação subterrânea, ronda
+  permanente. Para que sexta à noite seja chegar e jogar a chave em
+  cima da bancada — sem checar nada.
+
+
+SEÇÃO 07 — LOTES (revisada)
+============================
+
+(Pré-título — manter)
+Curadoria exclusiva
+
+(Título H2 — substituir "Aqui você não compra um imóvel. Você projeta o seu.")
+Aqui você não compra um imóvel.
+*Você projeta o seu refúgio.*
+
+(Parágrafo introdutório — substituir)
+Cinco lotes. Cinco terrenos com personalidade própria — para quem
+sabe que o lote certo define o projeto, não o contrário.
+
+(CARDS DOS LOTES — manter numeração e estrutura, substituir descrições)
+
+LOTE 01 · Próximo à mata · 1.200 m²
+Lote Z-21
+  O mais próximo da APP. Acorda com o som das nascentes — não com o
+  som do vizinho. Indicado pra quem quer o silêncio como amenidade
+  principal.
+
+LOTE 02 · Testada generosa · 1.439,15 m²
+Lote M-9
+  Para projetos com jardim que respira. Privacidade sem abrir mão
+  da luz natural — boa pra arquiteturas térreas, contemporâneas.
+
+LOTES 03 e 04 · Oportunidade Única · Lotes Vizinhos · 2.688,00 m²
+Lotes E1-4 e E1-5 (1.344 m² cada)
+  Topografia em declive e o trecho mais silencioso do conjunto. A
+  rara chance de unificar dois lotes para um projeto monumental —
+  daqueles que justificam por si só a decisão de comprar.
+
+LOTE 05 · O maior · 1.476,00 m²
+Lote J-8
+  O maior dos remanescentes. Espaço pra um projeto sem teto — e a
+  poucos minutos a pé do clube.
+
+(Disclaimer abaixo — manter)
+Condições e valores apresentados pelo consultor na visita.
+
+
+SEÇÃO 08 — COMUNIDADE (revisada — repositionamento crítico)
+============================================================
+
+(Número de destaque — manter)
+200+
+
+(Subtítulo abaixo do número — manter formato)
+famílias que já
+escolheram este endereço
+
+(Pré-título — manter)
+A comunidade
+
+(Título H2 — substituir "Mais de 200 famílias já escolheram este endereço.")
+200 famílias já trocaram
+*o CEP por um endereço.*
+
+(Parágrafo 1 — substituir o atual)
+Médicos, empresários, executivos, sócios de escritório — muitos
+vindos da capital, outros do próprio interior. Pessoas que um dia
+se fizeram a mesma pergunta que você está se fazendo agora: *vale a
+pena? eu vou usar? a família vai abraçar?*
+
+(Parágrafo 2 — substituir o atual)
+Decidiram que sim. E hoje têm uma rotina dividida entre a cidade
+que dá o trabalho e o endereço que devolve o tempo.
+
+(Linha de fechamento — substituir)
+EntreVerdes está nas suas últimas 5 oportunidades de entrada.
+
+(DEPOIMENTO PRINCIPAL — manter)
+"Eu cheguei no lote, fiquei em silêncio por dois minutos, e já
+sabia. A única dúvida era por que eu tinha esperado tanto."
+— Morador · EntreVerdes
+
+(DEPOIMENTOS ADICIONAIS — SUGESTÃO PARA ADICIONAR)
+
+ATENÇÃO IMPLEMENTADOR: os dois depoimentos abaixo são SUGESTÕES
+ilustrativas. NÃO PUBLICAR como reais. Solicitar à Imovit
+depoimentos verdadeiros de moradores vindos de São Paulo capital
+antes de incluir. Se não houver depoimentos reais disponíveis,
+manter apenas o depoimento principal acima.
+
+[SUGESTÃO — substituir por depoimento real]
+"Compramos pensando em vir nos fins de semana. No segundo ano, já
+estávamos morando — e os filhos não querem mais voltar pra São Paulo."
+— Família · vindos de Pinheiros, moradores há 3 anos
+
+[SUGESTÃO — substituir por depoimento real]
+"Demorei dois anos olhando casa em Itu, Joanópolis, Amparo. No
+EntreVerdes foi a primeira vez que pensei 'aqui eu venho toda semana'."
+— Sócio de escritório · São Paulo
+
+(Selo abaixo — manter)
+5 lotes disponíveis agora
+
+
+SEÇÃO 09 — CITAÇÃO DANIEL ARANOVICH (revisada)
+===============================================
+
+(Manter foto Daniel.jpg)
+
+(Citação — substituir a atual)
+"Quem vem de São Paulo descobre rápido o que separa uma casa de
+campo de um endereço de verdade: distância curta, infraestrutura
+urbana ao redor e uma natureza que não foi inventada pra agradar
+visitante. O EntreVerdes tem os três. É por isso que vende."
+
+(Assinatura — manter)
+Daniel Aranovich
+Diretor · Imovit Hub
+
+
+SEÇÃO 10 — CTA FINAL / FORMULÁRIO (revisada)
+=============================================
+
+(Pré-título — manter)
+Visita exclusiva
+
+(Título H2 — substituir "Agende uma visita. Duas horas que mudam o que você quer da vida.")
+Venha num sábado.
+*Volte com a decisão tomada.*
+
+(Parágrafo descritivo — substituir o atual)
+A visita ao EntreVerdes é diferente de qualquer outro empreendimento
+que você já visitou. Não é stand de vendas com café e maquete. É o
+lugar — o lote, a mata, o clube em funcionamento, as 200 famílias
+morando ao redor. Duas horas que respondem todas as perguntas que
+faltam.
+
+(Linhas em itálico — substituir as atuais)
+*Sem compromisso. Sem fila de espera.
+Só você, um consultor e o lugar.*
+
+(CAMPOS DO FORMULÁRIO — manter os existentes e ADICIONAR um novo)
+
+  Campo 1 — Nome (manter)
+  Campo 2 — WhatsApp (manter)
+  Campo 3 — E-mail (manter se já existir; senão, adicionar)
+  Campo 4 — [NOVO] De onde você está vindo?
+            Opções: São Paulo capital / Interior / Outra cidade
+  Campo 5 — Qual lote te interessou? (manter, com as opções atuais)
+
+(BOTÃO SUBMIT — substituir texto se necessário)
+Quero agendar minha visita
+
+(Texto secundário abaixo do botão — manter conceito, ajustar)
+Prefere falar agora? Chame nossa equipe no WhatsApp →
+(link existente: https://wa.me/551971237841?text=Olá,%20tenho%20interesse%20em%20conhecer%20o%20EntreVerdes.)
+
+
+SEÇÃO 11 — RODAPÉ
+==================
+
+(Selo principal — substituir)
+5 lotes primários · curadoria Imovit · Sousas, Campinas, SP
+
+(Endereço — manter)
+Av. Rotary, 134 - Vila Brandina, Campinas - SP, 13092-509 · imovit.com.br
+
+(CTA do rodapé — manter)
+Agendar visita exclusiva →
+
+(Link WhatsApp do rodapé — manter)
+
+
+------------------------------------------------------------
+META TAGS (atualizar para SEO e compartilhamento social)
+------------------------------------------------------------
+
+<title>EntreVerdes — A casa de campo a 1h de São Paulo · Imovit</title>
+
+<meta name="description" content="5 lotes primários em Sousas, Campinas. A menos de 1h de São Paulo pela Anhanguera. O condomínio de campo que 200 famílias já escolheram — restam 5 oportunidades.">
+
+<meta property="og:title" content="A casa de campo que você vai usar de verdade.">
+<meta property="og:description" content="A menos de 1h de São Paulo. Restam 5 lotes no EntreVerdes — Sousas, Campinas.">
+
+
+------------------------------------------------------------
+CHECKLIST DE QA APÓS IMPLEMENTAÇÃO
+------------------------------------------------------------
+
+[ ] Todas as 11 seções foram atualizadas conforme orientação
+[ ] A nova seção "A matemática da casa de campo" foi inserida
+    entre a ancoragem e a seção de território
+[ ] A tabela de tempos de viagem renderiza corretamente em
+    desktop e mobile
+[ ] Os 8 cards de amenities estão na nova ordem (Clubes vem 1º,
+    Segurança vem por último)
+[ ] O card novo "Hospitais de referência" foi adicionado na
+    seção de território
+[ ] O campo novo "De onde você está vindo?" foi adicionado no
+    formulário
+[ ] Depoimentos sugestivos foram REMOVIDOS ou SUBSTITUÍDOS por
+    depoimentos reais (NÃO publicar os exemplos do briefing)
+[ ] Meta tags atualizadas
+[ ] Todos os assets (imagens, logos) continuam funcionando
+[ ] Links de WhatsApp e âncoras #cta continuam funcionando
+[ ] Mobile responsivo testado em 375px
+[ ] Os textos em *itálico* renderizam corretamente (com <em>
+    ou estilo do design system)
+[ ] As quebras de linha intencionais nos H1 e H2 estão
+    preservadas
+
+
+------------------------------------------------------------
+SUGESTÕES DE TESTE A/B (FASE PÓS-LANÇAMENTO)
+------------------------------------------------------------
+
+HEADLINE — testar duas variações em ads pagos:
+  A) "A casa de campo que você vai usar de verdade."
+     (ataca a dor — funciona melhor com audiência morna)
+  B) "Menos de 1h de São Paulo. Restam 5 lotes."
+     (especificidade pura — pode performar melhor em tráfego
+     frio segmentado por geolocalização SP capital)
+
+CTA — testar:
+  A) "Quero conhecer os 5 lotes" (foco em escassez)
+  B) "Agendar minha visita" (foco em ação concreta)
+
+TABELA DE TEMPOS — testar com e sem a linha "Fazenda Boa Vista":
+  pode acelerar conversão (comparação direta com concorrente
+  conhecido) ou afastar (associação com produto fora da faixa).
+
+
+------------------------------------------------------------
+FIM DO DOCUMENTO
+================================================================
