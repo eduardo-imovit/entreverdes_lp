@@ -978,13 +978,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .lote-card.lote-selecionado {
-      background: var(--grafite-soft);
-      box-shadow: inset 0 0 0 2px var(--coral);
+      background: var(--grafite-soft) !important;
+      box-shadow: inset 0 0 0 2px var(--coral) !important;
     }
 
     .lote-card.lote-highlight.lote-selecionado {
-      background: var(--coral-dark);
-      box-shadow: inset 0 0 0 2px var(--creme);
+      background: var(--coral-dark) !important;
+      box-shadow: inset 0 0 0 2px var(--creme) !important;
     }
 
     .lote-card.lote-vendido {
@@ -2445,47 +2445,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
 
         // ── Sincronização dos Cards de Lotes com o Dropdown ──
-        const selectLote = document.getElementById('lote');
-        const loteCards = document.querySelectorAll('.lote-card');
-        
-        if (selectLote && loteCards.length > 0) {
-            function updateSelectedCards(selectedValue) {
+        function initLotesSync() {
+            const selectLote = document.getElementById('lote');
+            const loteCards = document.querySelectorAll('.lote-card');
+            
+            console.log("[Lotes Sync] Inicializando sincronização...", { selectLote, totalCards: loteCards.length });
+            
+            if (selectLote && loteCards.length > 0) {
+                function updateSelectedCards(selectedValue) {
+                    console.log("[Lotes Sync] Atualizando cards selecionados para o lote:", selectedValue);
+                    loteCards.forEach(card => {
+                        const dataLote = card.getAttribute('data-lote');
+                        if (dataLote) {
+                            const lotesList = dataLote.split(',');
+                            if (selectedValue && lotesList.includes(selectedValue)) {
+                                card.classList.add('lote-selecionado');
+                                console.log("[Lotes Sync] Card destacado:", dataLote);
+                            } else {
+                                card.classList.remove('lote-selecionado');
+                            }
+                        }
+                    });
+                }
+
                 loteCards.forEach(card => {
-                    const dataLote = card.getAttribute('data-lote');
-                    if (dataLote) {
-                        const lotesList = dataLote.split(',');
-                        if (selectedValue && lotesList.includes(selectedValue)) {
-                            card.classList.add('lote-selecionado');
-                        } else {
-                            card.classList.remove('lote-selecionado');
+                    if (card.classList.contains('lote-vendido')) return;
+
+                    card.addEventListener('click', () => {
+                        const dataLote = card.getAttribute('data-lote');
+                        console.log("[Lotes Sync] Card de lote clicado:", dataLote);
+                        if (dataLote) {
+                            const firstLote = dataLote.split(',')[0];
+                            selectLote.value = firstLote;
+                            selectLote.dispatchEvent(new Event('change'));
+                            
+                            const ctaSection = document.getElementById('cta');
+                            if (ctaSection) {
+                                console.log("[Lotes Sync] Rolando tela suavemente até a seção #cta");
+                                ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
                         }
-                    }
+                    });
                 });
+
+                selectLote.addEventListener('change', (e) => {
+                    updateSelectedCards(e.target.value);
+                });
+
+                updateSelectedCards(selectLote.value);
+            } else {
+                console.warn("[Lotes Sync] Falha ao inicializar. Elemento select ou cards de lote não encontrados no DOM.");
             }
+        }
 
-            loteCards.forEach(card => {
-                if (card.classList.contains('lote-vendido')) return;
-
-                card.addEventListener('click', () => {
-                    const dataLote = card.getAttribute('data-lote');
-                    if (dataLote) {
-                        const firstLote = dataLote.split(',')[0];
-                        selectLote.value = firstLote;
-                        selectLote.dispatchEvent(new Event('change'));
-                        
-                        const ctaSection = document.getElementById('cta');
-                        if (ctaSection) {
-                            ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                    }
-                });
-            });
-
-            selectLote.addEventListener('change', (e) => {
-                updateSelectedCards(e.target.value);
-            });
-
-            updateSelectedCards(selectLote.value);
+        if (document.readyState !== 'loading') {
+            initLotesSync();
+        } else {
+            document.addEventListener('DOMContentLoaded', initLotesSync);
         }
     });
   </script>
