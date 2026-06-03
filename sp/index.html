@@ -2339,7 +2339,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p class="cta-alt reveal">
         Prefere falar agora?
-        <a href="https://wa.me/551971237841?text=Olá,%20tenho%20interesse%20em%20conhecer%20o%20EntreVerdes."
+        <a id="wa-cta-link" href="https://wa.me/551971237841?text=Olá,%20tenho%20interesse%20em%20conhecer%20o%20EntreVerdes."
           target="_blank">
           Falar diretamente com nossa equipe →
         </a>
@@ -2387,6 +2387,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => observer.observe(el));
 
+    // ── Webhook helper ─────────────────────────────────────
+    const WEBHOOK_URL = 'https://n8n.srv1552977.hstgr.cloud/webhook/dd7c2e9b-e500-4672-92c4-035a366f4071';
+
+    function disparaWebhook(payload) {
+      const body = JSON.stringify(payload);
+      if (navigator.sendBeacon) {
+        const blob = new Blob([body], { type: 'text/plain' });
+        navigator.sendBeacon(WEBHOOK_URL, blob);
+      } else {
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: body,
+          keepalive: true
+        }).catch(() => {});
+      }
+    }
+
+    function getUtms() {
+      return {
+        utm_source:   sessionStorage.getItem('utm_source')   || urlParams.get('utm_source')   || 'organico',
+        utm_medium:   sessionStorage.getItem('utm_medium')   || urlParams.get('utm_medium')   || 'web',
+        utm_campaign: sessionStorage.getItem('utm_campaign') || urlParams.get('utm_campaign') || 'nenhuma',
+        utm_content:  sessionStorage.getItem('utm_content')  || urlParams.get('utm_content')  || '',
+        utm_term:     sessionStorage.getItem('utm_term')     || urlParams.get('utm_term')     || ''
+      };
+    }
+
     // ── Form submit ────────────────────────────────────────
     async function handleSubmit(e) {
       e.preventDefault();
@@ -2406,40 +2435,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const origemCidade = origemEl ? origemEl.value : '';
 
       const payload = {
-        nome: nome,
-        whatsapp: whatsapp,
+        tipo_conversao: 'form',
+        nome, whatsapp,
         lote: loteText,
+        origem_cidade: origemCidade,
         pagina: 'SP',
         origem: 'Landing Page EntreVerdes',
-        origem_cidade: origemCidade,
         data: new Date().toISOString(),
-        utm_source: document.getElementById('utm_source').value,
-        utm_medium: document.getElementById('utm_medium').value,
-        utm_campaign: document.getElementById('utm_campaign').value,
-        utm_content: urlParams.get('utm_content') || '',
-        utm_term: urlParams.get('utm_term') || ''
+        ...getUtms()
       };
 
       try {
-        // 1. Dispara para o Webhook do n8n (produção)
-        // Envia JSON como text/plain para contornar CORS sem perder estrutura
-        await fetch('https://n8n.srv1552977.hstgr.cloud/webhook/dd7c2e9b-e500-4672-92c4-035a366f4071', {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'text/plain'
-          },
-          body: JSON.stringify(payload)
-        });
+        disparaWebhook(payload);
 
-        // 2. Redireciona para o WhatsApp da equipe comercial
         const msg = encodeURIComponent(
           `Olá! Sou ${nome} e gostaria de agendar uma visita ao EntreVerdes.\n\nLote de interesse: ${loteText}`
         );
-
         window.open(`https://wa.me/551971237841?text=${msg}`, '_blank');
-
-        // 3. Redireciona a janela atual para a página de obrigado central
         window.location.href = '../obrigado.html';
 
       } catch (error) {
@@ -2449,6 +2461,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         btn.disabled = false;
       }
     }
+
+    // ── WhatsApp click tracking ────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+      ['wa-cta-link', 'wa-float-btn'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('click', () => {
+          disparaWebhook({
+            tipo_conversao: 'whatsapp',
+            nome: null, whatsapp: null, lote: null, origem_cidade: null,
+            pagina: 'SP',
+            origem: 'Landing Page EntreVerdes',
+            data: new Date().toISOString(),
+            ...getUtms()
+          });
+        });
+      });
+    });
 
     // ── Smooth anchor ──────────────────────────────────────
     document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -2460,7 +2490,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   </script>
 
-  <a href="https://wa.me/551971237841?text=Olá,%20tenho%20interesse%20em%20conhecer%20o%20EntreVerdes." class="float-wa"
+  <a id="wa-float-btn" href="https://wa.me/551971237841?text=Olá,%20tenho%20interesse%20em%20conhecer%20o%20EntreVerdes." class="float-wa"
     target="_blank" aria-label="Fale conosco no WhatsApp">
     <svg viewBox="0 0 448 512" fill="currentColor" style="width: 32px; height: 32px;">
       <path
@@ -2470,7 +2500,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <script>
     const utmParams = new URLSearchParams(window.location.search);
-    ['utm_source', 'utm_medium', 'utm_campaign'].forEach(param => {
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(param => {
         if (utmParams.has(param)) {
             sessionStorage.setItem(param, utmParams.get(param));
         }
