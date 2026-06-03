@@ -20,3 +20,4 @@ jobs:
         server: ${{ secrets.LOCAWEB_FTP_SERVER }}
         username: ${{ secrets.LOCAWEB_FTP_USERNAME }}
         password: ${{ secrets.LOCAWEB_FTP_PASSWORD }}
+        server-dir: public_html/
