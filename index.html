@@ -969,12 +969,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: var(--grafite-mid);
       padding: 32px 24px;
       border-left: 1px solid rgba(244, 239, 228, 0.04);
-      transition: background 0.3s;
-      cursor: default;
+      transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+      cursor: pointer;
     }
 
     .lote-card:hover {
       background: var(--grafite-soft);
+    }
+
+    .lote-card.lote-selecionado {
+      background: var(--grafite-soft);
+      box-shadow: inset 0 0 0 2px var(--coral);
+    }
+
+    .lote-card.lote-highlight.lote-selecionado {
+      background: var(--coral-dark);
+      box-shadow: inset 0 0 0 2px var(--creme);
     }
 
     .lote-card.lote-vendido {
@@ -2116,7 +2126,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="lotes-grid">
-      <div class="lote-card reveal">
+      <div class="lote-card reveal" data-lote="lote-01">
         <div class="lote-number">01</div>
         <p class="lote-tag t-label">Próximo à mata</p>
         <p class="lote-area t-display">1.200,00 m²</p>
@@ -2124,7 +2134,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="lote-divider"></div>
         <p class="lote-copy">Topografia em declive. <br>O mais próximo das quadras poliesportivas. Em uma das ruas mais bonitas do condomínio.</p>
       </div>
-      <div class="lote-card lote-vendido reveal reveal-delay-1">
+      <div class="lote-card lote-vendido reveal reveal-delay-1" data-lote="lote-02">
         <div class="lote-number">02</div>
         <p class="lote-tag t-label">Testada generosa</p>
         <p class="lote-area t-display">1.439,15 m²</p>
@@ -2132,7 +2142,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="lote-divider"></div>
         <p class="lote-copy">Topografia em aclive. <br>Para projetos com jardim que respira. Privacidade sem abrir mão da luz natural, com vista para área de preservação.</p>
       </div>
-      <div class="lote-card lote-highlight reveal reveal-delay-2">
+      <div class="lote-card lote-highlight reveal reveal-delay-2" data-lote="lote-03,lote-04">
         <div class="lote-number">03 e 04</div>
         <p class="lote-tag t-label">Oportunidade Única · Lotes Vizinhos</p>
         <p class="lote-area t-display">2.688,00 m²</p>
@@ -2141,7 +2151,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="lote-copy">Topografia em declive. <br>O trecho mais silencioso do condomínio. A rara chance de unificar
           dois lotes para um projeto monumental, daqueles que justificam por si só a decisão de comprar.</p>
       </div>
-      <div class="lote-card reveal reveal-delay-3">
+      <div class="lote-card reveal reveal-delay-3" data-lote="lote-05">
         <div class="lote-number">05</div>
         <p class="lote-tag t-label">O maior</p>
         <p class="lote-area t-display">1.476,00 m²</p>
@@ -2433,6 +2443,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 });
             }
         });
+
+        // ── Sincronização dos Cards de Lotes com o Dropdown ──
+        const selectLote = document.getElementById('lote');
+        const loteCards = document.querySelectorAll('.lote-card');
+        
+        if (selectLote && loteCards.length > 0) {
+            function updateSelectedCards(selectedValue) {
+                loteCards.forEach(card => {
+                    const dataLote = card.getAttribute('data-lote');
+                    if (dataLote) {
+                        const lotesList = dataLote.split(',');
+                        if (selectedValue && lotesList.includes(selectedValue)) {
+                            card.classList.add('lote-selecionado');
+                        } else {
+                            card.classList.remove('lote-selecionado');
+                        }
+                    }
+                });
+            }
+
+            loteCards.forEach(card => {
+                if (card.classList.contains('lote-vendido')) return;
+
+                card.addEventListener('click', () => {
+                    const dataLote = card.getAttribute('data-lote');
+                    if (dataLote) {
+                        const firstLote = dataLote.split(',')[0];
+                        selectLote.value = firstLote;
+                        selectLote.dispatchEvent(new Event('change'));
+                        
+                        const ctaSection = document.getElementById('cta');
+                        if (ctaSection) {
+                            ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                });
+            });
+
+            selectLote.addEventListener('change', (e) => {
+                updateSelectedCards(e.target.value);
+            });
+
+            updateSelectedCards(selectLote.value);
+        }
     });
   </script>
 </body>
