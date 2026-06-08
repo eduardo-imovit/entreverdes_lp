@@ -1939,7 +1939,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="galeria-grid">
       <div class="galeria-item reveal">
         <div class="galeria-placeholder galeria-placeholder-1">
-          <video loop muted playsinline preload="none" poster="assets/images/capa-video.jpg">
+          <video loop muted playsinline preload="none">
             <source src="https://github.com/user-attachments/assets/f548a190-6011-4aa3-98c2-be5f514b248f" type="video/mp4">
           </video>
           <span class="galeria-label">Vista aérea · Clube</span>
@@ -1947,7 +1947,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="galeria-item reveal reveal-delay-1">
         <div class="galeria-placeholder galeria-placeholder-2">
-          <video loop muted playsinline preload="none" poster="assets/images/capa-video.jpg">
+          <video loop muted playsinline preload="none">
             <source src="https://github.com/user-attachments/assets/954b2249-c990-4a9d-ab4c-2d1e3bc48ab4" type="video/mp4">
           </video>
           <span class="galeria-label">Complexo aquático · piscina aquecida coberta o ano todo</span>
@@ -1955,7 +1955,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="galeria-item reveal reveal-delay-2">
         <div class="galeria-placeholder galeria-placeholder-3">
-          <video loop muted playsinline preload="none" poster="assets/images/capa-video.jpg">
+          <video loop muted playsinline preload="none">
             <source src="https://github.com/user-attachments/assets/5ccfe9cd-39e9-4b99-bd48-34c8876a9b92" type="video/mp4">
           </video>
           <span class="galeria-label">8.500m de trilhas dentro do condomínio</span>
@@ -1963,7 +1963,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="galeria-item reveal reveal-delay-1">
         <div class="galeria-placeholder galeria-placeholder-4">
-          <video loop muted playsinline preload="none" poster="assets/images/capa-video.jpg">
+          <video loop muted playsinline preload="none">
             <source src="https://github.com/user-attachments/assets/c9e12362-c27a-464d-94a5-e99bb775271d" type="video/mp4">
           </video>
           <span class="galeria-label">Arquitetura · projeto livre, do seu jeito</span>
@@ -1971,7 +1971,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="galeria-item reveal reveal-delay-2">
         <div class="galeria-placeholder galeria-placeholder-5">
-          <video loop muted playsinline preload="none" poster="assets/images/capa-video.jpg">
+          <video loop muted playsinline preload="none">
             <source src="https://github.com/user-attachments/assets/09063642-8f36-473a-ab3d-645928de27fc" type="video/mp4">
           </video>
           <span class="galeria-label">Clubes privativos · o fim de semana sem sair daqui</span>
@@ -1979,7 +1979,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="galeria-item reveal reveal-delay-3">
         <div class="galeria-placeholder galeria-placeholder-6">
-          <video loop muted playsinline preload="none" poster="assets/images/capa-video.jpg">
+          <video loop muted playsinline preload="none">
             <source src="https://github.com/user-attachments/assets/3d9dbd04-3612-4ecb-bc9b-3ca57cdc086f" type="video/mp4">
           </video>
           <span class="galeria-label">Área comum pensada para relaxar</span>
@@ -2171,7 +2171,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="com-grid">
       <div class="com-visual reveal">
         <div class="com-photo">
-          <video loop muted playsinline preload="none" poster="assets/images/capa-video.jpg">
+          <video loop muted playsinline preload="none">
             <source src="https://github.com/user-attachments/assets/01376476-e5e0-45c7-acc6-9e61e153bbbe" type="video/mp4">
           </video>
         </div>
@@ -2430,19 +2430,55 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         });
 
-        // Play/Pause nos vídeos sem autoplay (preload="none")
-        document.querySelectorAll('video').forEach(video => {
-            if (video.preload === 'none') {
-                video.style.cursor = 'pointer';
-                video.addEventListener('click', () => {
-                    if (video.paused) {
-                        video.play();
-                    } else {
-                        video.pause();
-                    }
+        // ── Lazy-Autoplay dos Vídeos ──
+        function initLazyVideos() {
+            const videos = document.querySelectorAll('.galeria-placeholder video, .com-photo video');
+            console.log("[Lazy Videos] Inicializando IntersectionObserver...", { total: videos.length });
+            
+            if ('IntersectionObserver' in window) {
+                const videoObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        const video = entry.target;
+                        if (entry.isIntersecting) {
+                            console.log("[Lazy Videos] Play:", video.querySelector('source')?.src || video.src);
+                            video.preload = 'auto';
+                            video.play().catch(err => {
+                                console.warn("[Lazy Videos] Play bloqueado automaticamente:", err);
+                            });
+                        } else {
+                            console.log("[Lazy Videos] Pause:", video.querySelector('source')?.src || video.src);
+                            video.pause();
+                        }
+                    });
+                }, {
+                    rootMargin: '300px 0px', // Inicia o carregamento/play um pouco antes de entrar na tela
+                    threshold: 0.1
+                });
+
+                videos.forEach(video => {
+                    video.preload = 'none';
+                    videoObserver.observe(video);
+                    
+                    // Adiciona clique para alternar play/pause manualmente
+                    video.style.cursor = 'pointer';
+                    video.addEventListener('click', () => {
+                        if (video.paused) {
+                            video.play();
+                        } else {
+                            video.pause();
+                        }
+                    });
+                });
+            } else {
+                // Fallback simples para navegadores antigos
+                videos.forEach(video => {
+                    video.preload = 'auto';
+                    video.autoplay = true;
+                    video.muted = true;
                 });
             }
-        });
+        }
+        initLazyVideos();
 
         // ── Sincronização dos Cards de Lotes com o Dropdown ──
         function initLotesSync() {
