@@ -7,13 +7,51 @@
   <title>EntreVerdes , A casa de campo a 1h de São Paulo · Imovit</title>
   <link rel="icon" type="image/png" href="assets/images/simbolo-coral.png">
   
+  <!-- Interceptador Global de Erros (WebView Android) -->
+  <script>
+    window.addEventListener('error', function(e) {
+      if (e.message && (
+        e.message.toLowerCase().includes('java object is gone') || 
+        e.message.toLowerCase().includes('postmessage') ||
+        e.message.toLowerCase().includes('script error')
+      )) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+    window.addEventListener('unhandledrejection', function(e) {
+      if (e.reason && e.reason.message && (
+        e.reason.message.toLowerCase().includes('java object is gone') ||
+        e.reason.message.toLowerCase().includes('postmessage')
+      )) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+  </script>
+
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PX99SQ2');</script>
-<!-- End Google Tag Manager -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PX99SQ2');
+    });
+  </script>
+  <!-- End Google Tag Manager -->
+  
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    window.addEventListener('DOMContentLoaded', () => {
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "wy4zj25kjd");
+    });
+  </script>
   
   <meta name="description"
     content="5 lotes primários em Sousas, Campinas. A menos de 1h de São Paulo pela Anhanguera. O condomínio de campo que 200 famílias já escolheram , restam 5 oportunidades.">
@@ -524,6 +562,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       gap: 16px;
       padding: 16px 0;
       border-bottom: 0.5px solid var(--champagne);
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .loc-point:hover {
+      opacity: 0.85;
     }
 
     .loc-point:last-child {
@@ -567,7 +611,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       overflow: hidden;
       aspect-ratio: 4/5;
       position: relative;
-      /* SUBSTITUIR: embed Google Maps ou imagem do mapa */
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .loc-map-area:hover {
+      opacity: 0.95;
     }
 
     .loc-map-placeholder {
@@ -856,9 +905,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .amenity-item {
+      display: block;
       background: var(--creme);
       padding: 32px 28px;
       transition: background 0.3s;
+      cursor: pointer;
     }
 
     .amenity-item:hover {
@@ -1289,6 +1340,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: flex;
       align-items: center;
       gap: 48px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .consul-inner:hover {
+      opacity: 0.9;
     }
 
     @media (max-width: 640px) {
@@ -1626,7 +1683,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <nav id="nav">
     <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
       <div class="nav-left" style="display: flex; align-items: center;">
-        <img src="assets/images/Logos-Imovit-Lares_imovit-lares-creme.png" alt="Imovit" style="height: 32px; width: auto;">
+        <img src="assets/images/Logos-Imovit-Lares_imovit-lares-creme.webp" alt="Imovit" style="height: 32px; width: auto;">
       </div>
       <div class="nav-center"
         style="position: absolute; left: 50%; transform: translateX(-50%); font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 0.12em; color: var(--creme);">
@@ -1643,7 +1700,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hero-bg">
     </div>
     <div class="hero-photo">
-      <video autoplay loop muted playsinline preload="metadata">
+      <video poster="assets/images/capa-video.webp" autoplay loop muted playsinline preload="metadata">
         <source src="https://github.com/user-attachments/assets/01376476-e5e0-45c7-acc6-9e61e153bbbe" type="video/mp4">
       </video>
   </div>
@@ -1679,8 +1736,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section id="intro">
     <div class="reveal">
       <div class="reveal" style="margin-bottom: 24px; display: flex; justify-content: center;">
-        <img src="assets/images/Logos-Imovit-Lares_imovit-lares-coral-creme.png" alt="Imovit"
-          style="height: 36px; width: auto;">
+        <img src="assets/images/Logos-Imovit-Lares_imovit-lares-coral-creme.webp" alt="Imovit"
+          style="height: 36px; width: auto;" loading="lazy">
       </div>
       <p class="intro-quote t-display">
         Não é mais um lançamento de condomínio de campo.<br>
@@ -2212,7 +2269,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section id="consultor">
     <div class="consul-inner reveal">
       <div class="consul-photo">
-        <img src="assets/images/Daniel2.jpg" alt="Daniel Aranovich" style="object-position: top;">
+        <img src="assets/images/Daniel2.webp" alt="Daniel Aranovich" style="object-position: top;" loading="lazy">
       </div>
       <div>
         <p class="consul-quote t-display">
@@ -2300,7 +2357,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container"
       style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
       <div class="footer-logo">
-        <img src="assets/images/Logos-Imovit-Lares_imovit-lares-creme.png" alt="Imovit" style="height: 32px; width: auto;">
+        <img src="assets/images/Logos-Imovit-Lares_imovit-lares-creme.webp" alt="Imovit" style="height: 32px; width: auto;" loading="lazy">
       </div>
 
       <div class="footer-info">Av. Rotary, 134 - Vila Brandina, Campinas - SP, 13092-509 · imovit.com.br</div>
@@ -2458,16 +2515,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 videos.forEach(video => {
                     video.preload = 'none';
                     videoObserver.observe(video);
-                    
-                    // Adiciona clique para alternar play/pause manualmente
-                    video.style.cursor = 'pointer';
-                    video.addEventListener('click', () => {
-                        if (video.paused) {
-                            video.play();
-                        } else {
-                            video.pause();
-                        }
-                    });
                 });
             } else {
                 // Fallback simples para navegadores antigos
@@ -2534,10 +2581,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         }
 
+        // ── Resolução de Dead Clicks (Cliques Inativos) ──
+        function initDeadClicksResolver() {
+            const ctaSection = document.getElementById('cta');
+            
+            // 1. Galeria, Amenities e Pontos de Localização rolam para o CTA
+            const targetElements = document.querySelectorAll('.galeria-item, .amenity-item, .loc-point, .loc-map-area');
+            targetElements.forEach(el => {
+                el.addEventListener('click', (e) => {
+                    if (e.target.tagName !== 'A' && ctaSection) {
+                        e.preventDefault();
+                        ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // 2. Seção do Consultor direciona para o WhatsApp comercial
+            const consulInner = document.querySelector('.consul-inner');
+            if (consulInner) {
+                consulInner.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // Para a raiz, usa o link direto
+                    window.open("https://wa.me/551971237841?text=Olá,%20tenho%20interesse%20em%20conhecer%20o%20EntreVerdes.", '_blank');
+                });
+            }
+        }
+
         if (document.readyState !== 'loading') {
             initLotesSync();
+            initDeadClicksResolver();
         } else {
-            document.addEventListener('DOMContentLoaded', initLotesSync);
+            document.addEventListener('DOMContentLoaded', () => {
+                initLotesSync();
+                initDeadClicksResolver();
+            });
         }
     });
   </script>

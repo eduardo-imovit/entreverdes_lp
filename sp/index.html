@@ -6,23 +6,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EntreVerdes, A casa de campo a 1h de São Paulo · Imovit</title>
   <link rel="icon" type="image/png" href="../assets/images/simbolo-coral.png">
-  
+
+  <!-- Interceptador Global de Erros (WebView Android) -->
+  <script>
+    window.addEventListener('error', function (e) {
+      if (e.message && (
+        e.message.toLowerCase().includes('java object is gone') ||
+        e.message.toLowerCase().includes('postmessage') ||
+        e.message.toLowerCase().includes('script error')
+      )) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+    window.addEventListener('unhandledrejection', function (e) {
+      if (e.reason && e.reason.message && (
+        e.reason.message.toLowerCase().includes('java object is gone') ||
+        e.reason.message.toLowerCase().includes('postmessage')
+      )) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+  </script>
+
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PX99SQ2');</script>
-<!-- End Google Tag Manager -->
-  
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+          'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-PX99SQ2');
+    });
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Microsoft Clarity -->
   <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wy4zj25kjd");
-</script>
-  
+    window.addEventListener('DOMContentLoaded', () => {
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "wy4zj25kjd");
+    });
+  </script>
+
   <meta name="description"
     content="5 lotes primários em Sousas, Campinas. A menos de 1h de São Paulo pela Anhanguera. O condomínio de campo que 200 famílias já escolheram , restam 5 oportunidades.">
   <meta property="og:title" content="A casa de campo que você vai usar de verdade.">
@@ -532,6 +565,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       gap: 16px;
       padding: 16px 0;
       border-bottom: 0.5px solid var(--champagne);
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .loc-point:hover {
+      opacity: 0.85;
     }
 
     .loc-point:last-child {
@@ -575,7 +614,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       overflow: hidden;
       aspect-ratio: 4/5;
       position: relative;
-      /* SUBSTITUIR: embed Google Maps ou imagem do mapa */
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .loc-map-area:hover {
+      opacity: 0.95;
     }
 
     .loc-map-placeholder {
@@ -864,9 +908,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .amenity-item {
+      display: block;
       background: var(--creme);
       padding: 32px 28px;
       transition: background 0.3s;
+      cursor: pointer;
     }
 
     .amenity-item:hover {
@@ -1297,6 +1343,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: flex;
       align-items: center;
       gap: 48px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .consul-inner:hover {
+      opacity: 0.9;
     }
 
     @media (max-width: 640px) {
@@ -1680,17 +1732,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 
 <body>
-  
+
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PX99SQ2"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PX99SQ2" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <!-- NAV -->
   <nav id="nav">
     <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
       <div class="nav-left" style="display: flex; align-items: center;">
-        <img src="../assets/images/Logos-Imovit-Lares_imovit-lares-creme.png" alt="Imovit" style="height: 32px; width: auto;">
+        <img src="../assets/images/Logos-Imovit-Lares_imovit-lares-creme.webp" alt="Imovit"
+          style="height: 32px; width: auto;">
       </div>
       <div class="nav-center"
         style="position: absolute; left: 50%; transform: translateX(-50%); font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 0.12em; color: var(--creme);">
@@ -1707,7 +1760,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hero-bg">
     </div>
     <div class="hero-photo">
-      <video autoplay loop muted playsinline preload="metadata">
+      <video poster="../assets/images/capa-video.webp" autoplay loop muted playsinline preload="metadata">
         <source src="https://github.com/user-attachments/assets/01376476-e5e0-45c7-acc6-9e61e153bbbe" type="video/mp4">
       </video>
     </div>
@@ -1723,8 +1776,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           A casa de campo<br>que você vai usar<br><em>de verdade.</em>
         </h1>
         <p class="hero-sub">
-          Sexta à noite você sai de São Paulo. Domingo de manhã você ainda está caminhando na trilha, sem ter passado uma hora no
-          trânsito.EntreVerdes é o condomínio que torna ter uma segunda casa, ou trocar a primeira, uma decisão que faz
+          Sexta à noite você sai de São Paulo. Domingo de manhã você ainda está caminhando na trilha, sem ter passado
+          uma hora no
+          trânsito. EntreVerdes é o condomínio que torna ter uma segunda casa, ou trocar a primeira, uma decisão que faz
           sentido.
         </p>
         <a href="#cta" class="btn-primary">
@@ -1743,8 +1797,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section id="intro">
     <div class="reveal">
       <div class="reveal" style="margin-bottom: 24px; display: flex; justify-content: center;">
-        <img src="../assets/images/Logos-Imovit-Lares_imovit-lares-coral-creme.png" alt="Imovit"
-          style="height: 36px; width: auto;">
+        <img src="../assets/images/Logos-Imovit-Lares_imovit-lares-coral-creme.webp" alt="Imovit"
+          style="height: 36px; width: auto;" loading="lazy">
       </div>
       <p class="intro-quote t-display">
         Não é mais um lançamento de condomínio de campo.<br>
@@ -1760,7 +1814,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container" style="max-width: 860px; margin: 0 auto;">
       <div class="reveal">
         <p class="t-label" style="color: var(--coral); margin-bottom: 16px;">A matemática da casa de campo</p>
-        <h2 class="t-display" style="margin-bottom: 32px; font-size: clamp(36px, 4.5vw, 56px); line-height: 1.1; letter-spacing: -0.02em;">
+        <h2 class="t-display"
+          style="margin-bottom: 32px; font-size: clamp(36px, 4.5vw, 56px); line-height: 1.1; letter-spacing: -0.02em;">
           Casa de campo só vale<br><em>se você chegar lá.</em>
         </h2>
         <p class="t-body" style="margin-bottom: 16px;">
@@ -1793,15 +1848,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <td style="padding: 12px 16px;">Itu / São Roque</td>
                 <td style="padding: 12px 16px; text-align: right; color: var(--terracota);">1h10 – 1h30</td>
               </tr>
-                <tr style="border-bottom: 1px solid rgba(90,87,72,0.1);">
+              <tr style="border-bottom: 1px solid rgba(90,87,72,0.1);">
                 <td style="padding: 12px 16px;">Quinta da Baroneza</td>
                 <td style="padding: 12px 16px; text-align: right; color: var(--terracota);">1h30 - 1h50</td>
               </tr>
-                <tr>
+              <tr>
                 <td style="padding: 12px 16px;">Fazenda Boa Vista (Porto Feliz)</td>
                 <td style="padding: 12px 16px; text-align: right; color: var(--terracota);">1h30 – 2h</td>
               </tr>
-              
+
               <tr style="border-bottom: 1px solid rgba(90,87,72,0.1);">
                 <td style="padding: 12px 16px;">Joanópolis / Bragança</td>
                 <td style="padding: 12px 16px; text-align: right; color: var(--terracota);">1h40 – 2h</td>
@@ -1928,7 +1983,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="loc-point-detail">Se a ideia for trocar a rotina da família por aqui, uma das melhores
                 escolas do interior está a 15 minutos.</div>
             </div>
-            
+
           </div>
           <div class="loc-point">
             <div class="loc-point-icon">
@@ -2004,7 +2059,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="galeria-item reveal">
         <div class="galeria-placeholder galeria-placeholder-1">
           <video loop muted playsinline preload="none">
-            <source src="https://github.com/user-attachments/assets/f548a190-6011-4aa3-98c2-be5f514b248f" type="video/mp4">
+            <source src="https://github.com/user-attachments/assets/f548a190-6011-4aa3-98c2-be5f514b248f"
+              type="video/mp4">
           </video>
           <span class="galeria-label">Vista aérea · Clube</span>
         </div>
@@ -2012,7 +2068,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="galeria-item reveal reveal-delay-1">
         <div class="galeria-placeholder galeria-placeholder-2">
           <video loop muted playsinline preload="none">
-            <source src="https://github.com/user-attachments/assets/954b2249-c990-4a9d-ab4c-2d1e3bc48ab4" type="video/mp4">
+            <source src="https://github.com/user-attachments/assets/954b2249-c990-4a9d-ab4c-2d1e3bc48ab4"
+              type="video/mp4">
           </video>
           <span class="galeria-label">Complexo aquático · piscina aquecida coberta o ano todo</span>
         </div>
@@ -2020,7 +2077,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="galeria-item reveal reveal-delay-2">
         <div class="galeria-placeholder galeria-placeholder-3">
           <video loop muted playsinline preload="none">
-            <source src="https://github.com/user-attachments/assets/5ccfe9cd-39e9-4b99-bd48-34c8876a9b92" type="video/mp4">
+            <source src="https://github.com/user-attachments/assets/5ccfe9cd-39e9-4b99-bd48-34c8876a9b92"
+              type="video/mp4">
           </video>
           <span class="galeria-label">8.500m de trilhas dentro do condomínio</span>
         </div>
@@ -2028,7 +2086,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="galeria-item reveal reveal-delay-1">
         <div class="galeria-placeholder galeria-placeholder-4">
           <video loop muted playsinline preload="none">
-            <source src="https://github.com/user-attachments/assets/c9e12362-c27a-464d-94a5-e99bb775271d" type="video/mp4">
+            <source src="https://github.com/user-attachments/assets/c9e12362-c27a-464d-94a5-e99bb775271d"
+              type="video/mp4">
           </video>
           <span class="galeria-label">Arquitetura · projeto livre, do seu jeito</span>
         </div>
@@ -2036,7 +2095,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="galeria-item reveal reveal-delay-2">
         <div class="galeria-placeholder galeria-placeholder-5">
           <video loop muted playsinline preload="none">
-            <source src="https://github.com/user-attachments/assets/09063642-8f36-473a-ab3d-645928de27fc" type="video/mp4">
+            <source src="https://github.com/user-attachments/assets/09063642-8f36-473a-ab3d-645928de27fc"
+              type="video/mp4">
           </video>
           <span class="galeria-label">Clubes privativos · o fim de semana sem sair daqui</span>
         </div>
@@ -2044,7 +2104,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="galeria-item reveal reveal-delay-3">
         <div class="galeria-placeholder galeria-placeholder-6">
           <video loop muted playsinline preload="none">
-            <source src="https://github.com/user-attachments/assets/3d9dbd04-3612-4ecb-bc9b-3ca57cdc086f" type="video/mp4">
+            <source src="https://github.com/user-attachments/assets/3d9dbd04-3612-4ecb-bc9b-3ca57cdc086f"
+              type="video/mp4">
           </video>
           <span class="galeria-label">Área comum pensada para relaxar</span>
         </div>
@@ -2143,7 +2204,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </svg>
         </div>
         <div class="amenity-name">Duas hortas orgânicas</div>
-        <div class="amenity-desc">Produção dentro do condomínio. O domingo de almoço fica mais bonito quando os ingredientes 
+        <div class="amenity-desc">Produção dentro do condomínio. O domingo de almoço fica mais bonito quando os
+          ingredientes
           vieram de dois quarteirões dali.</div>
       </div>
       <div class="amenity-item reveal reveal-delay-2">
@@ -2196,7 +2258,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="lote-area t-display">1.200,00 m²</p>
         <p class="lote-area-note">Lote Z-21</p>
         <div class="lote-divider"></div>
-        <p class="lote-copy">Topografia em declive. <br>O mais próximo das quadras poliesportivas. Em uma das ruas mais bonitas do condomínio.</p>
+        <p class="lote-copy">Topografia em declive. <br>O mais próximo das quadras poliesportivas. Em uma das ruas mais
+          bonitas do condomínio.</p>
       </div>
       <div class="lote-card lote-vendido reveal reveal-delay-1" data-lote="lote-02">
         <div class="lote-number">02</div>
@@ -2204,7 +2267,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="lote-area t-display">1.439,15 m²</p>
         <p class="lote-area-note">Lote M-9</p>
         <div class="lote-divider"></div>
-        <p class="lote-copy">Topografia em aclive. <br>Para projetos com jardim que respira. Privacidade sem abrir mão da luz natural, com vista para área de preservação.</p>
+        <p class="lote-copy">Topografia em aclive. <br>Para projetos com jardim que respira. Privacidade sem abrir mão
+          da luz natural, com vista para área de preservação.</p>
       </div>
       <div class="lote-card lote-highlight reveal reveal-delay-2" data-lote="lote-03,lote-04">
         <div class="lote-number">03 e 04</div>
@@ -2212,7 +2276,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="lote-area t-display">2.688,00 m²</p>
         <p class="lote-area-note">Lotes E1-4 e E1-5 (1.344m² cada)</p>
         <div class="lote-divider"></div>
-        <p class="lote-copy">Topografia em declive. <br>O trecho mais silencioso do condomínio. A rara chance de unificar
+        <p class="lote-copy">Topografia em declive. <br>O trecho mais silencioso do condomínio. A rara chance de
+          unificar
           dois lotes para um projeto monumental, daqueles que justificam por si só a decisão de comprar.</p>
       </div>
       <div class="lote-card reveal reveal-delay-3" data-lote="lote-05">
@@ -2221,7 +2286,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="lote-area t-display">1.476,00 m²</p>
         <p class="lote-area-note">Lote J-8</p>
         <div class="lote-divider"></div>
-        <p class="lote-copy">Topografia em declive. <br>Em rua sem saída, com fundo e frente para área de preservação.</p>
+        <p class="lote-copy">Topografia em declive. <br>Em rua sem saída, com fundo e frente para área de preservação.
+        </p>
       </div>
     </div>
 
@@ -2236,7 +2302,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="com-visual reveal">
         <div class="com-photo">
           <video loop muted playsinline preload="none">
-            <source src="https://github.com/user-attachments/assets/01376476-e5e0-45c7-acc6-9e61e153bbbe" type="video/mp4">
+            <source src="https://github.com/user-attachments/assets/01376476-e5e0-45c7-acc6-9e61e153bbbe"
+              type="video/mp4">
           </video>
         </div>
         <div class="com-stat-badge">
@@ -2252,7 +2319,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </h2>
         <p class="com-body t-body">
           Médicos, empresários e executivos, muitos vindos da capital, outros do próprio interior.
-          Pessoas que um dia se fizeram a mesma pergunta que você está se fazendo agora: <em><br>Vale a pena? <br>Eu vou usar? <br>A
+          Pessoas que um dia se fizeram a mesma pergunta que você está se fazendo agora: <em><br>Vale a pena? <br>Eu vou
+            usar? <br>A
             família vai abraçar?</em>
         </p>
         <p class="com-body t-body" style="margin-top:-16px;">
@@ -2276,11 +2344,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section id="consultor">
     <div class="consul-inner reveal">
       <div class="consul-photo">
-        <img src="../assets/images/Daniel2.jpg" alt="Daniel Aranovich" style="object-position: top;">
+        <img src="../assets/images/Daniel2.webp" alt="Daniel Aranovich" style="object-position: top;" loading="lazy">
       </div>
       <div>
         <p class="consul-quote t-display">
-          "Quando mostro o EntreVerdes, a uma hora de São Paulo, Campinas ao redor, natureza que não foi montada pra foto,
+          "Quando mostro o EntreVerdes, a uma hora de São Paulo, Campinas ao redor, natureza que não foi montada pra
+          foto,
           eles entendem sozinhos. Eu não preciso vender muito."
         </p>
         <p class="consul-name t-label">Daniel Aranovich</p>
@@ -2299,7 +2368,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </h2>
       <p class="cta-sub reveal">
         A visita ao EntreVerdes é diferente de qualquer outro empreendimento que você já visitou. Não é stand de vendas
-        com café e maquete. É o lugar, o lote, a mata, o clube em funcionamento, as +200 famílias morando ao redor. <br><br>Uma visita que responde todas as perguntas que faltam.
+        com café e maquete. É o lugar, o lote, a mata, o clube em funcionamento, as +200 famílias morando ao redor.
+        <br><br>Uma visita que responde todas as perguntas que faltam.
       </p>
       <p class="cta-sub reveal" style="font-style: italic;">
         Sem compromisso. Sem fila de espera.<br>Só você, um consultor e o lugar.
@@ -2349,7 +2419,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p class="cta-alt reveal">
         Prefere falar agora?
-        <a id="wa-cta-link" href="https://wa.me/551971237841?text=Olá,%20tenho%20interesse%20em%20conhecer%20o%20EntreVerdes."
+        <a id="wa-cta-link"
+          href="https://wa.me/551971237841?text=Olá,%20tenho%20interesse%20em%20conhecer%20o%20EntreVerdes."
           target="_blank">
           Falar diretamente com nossa equipe →
         </a>
@@ -2364,7 +2435,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container"
       style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
       <div class="footer-logo">
-        <img src="../assets/images/Logos-Imovit-Lares_imovit-lares-creme.png" alt="Imovit" style="height: 32px; width: auto;">
+        <img src="../assets/images/Logos-Imovit-Lares_imovit-lares-creme.webp" alt="Imovit"
+          style="height: 32px; width: auto;" loading="lazy">
       </div>
 
       <div class="footer-info">Av. Rotary, 134 - Vila Brandina, Campinas - SP, 13092-509 · imovit.com.br</div>
@@ -2412,17 +2484,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           headers: { 'Content-Type': 'text/plain' },
           body: body,
           keepalive: true
-        }).catch(() => {});
+        }).catch(() => { });
       }
     }
 
     function getUtms() {
       return {
-        utm_source:   sessionStorage.getItem('utm_source')   || urlParams.get('utm_source')   || 'organico',
-        utm_medium:   sessionStorage.getItem('utm_medium')   || urlParams.get('utm_medium')   || 'web',
+        utm_source: sessionStorage.getItem('utm_source') || urlParams.get('utm_source') || 'organico',
+        utm_medium: sessionStorage.getItem('utm_medium') || urlParams.get('utm_medium') || 'web',
         utm_campaign: sessionStorage.getItem('utm_campaign') || urlParams.get('utm_campaign') || 'nenhuma',
-        utm_content:  sessionStorage.getItem('utm_content')  || urlParams.get('utm_content')  || '',
-        utm_term:     sessionStorage.getItem('utm_term')     || urlParams.get('utm_term')     || ''
+        utm_content: sessionStorage.getItem('utm_content') || urlParams.get('utm_content') || '',
+        utm_term: sessionStorage.getItem('utm_term') || urlParams.get('utm_term') || ''
       };
     }
 
@@ -2500,7 +2572,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   </script>
 
-  <a id="wa-float-btn" href="https://wa.me/551971237841?text=Olá,%20tenho%20interesse%20em%20conhecer%20o%20EntreVerdes." class="float-wa"
+  <a id="wa-float-btn"
+    href="https://wa.me/551971237841?text=Olá,%20tenho%20interesse%20em%20conhecer%20o%20EntreVerdes." class="float-wa"
     target="_blank" aria-label="Fale conosco no WhatsApp">
     <svg viewBox="0 0 448 512" fill="currentColor" style="width: 32px; height: 32px;">
       <path
@@ -2511,128 +2584,149 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script>
     const utmParams = new URLSearchParams(window.location.search);
     ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(param => {
-        if (utmParams.has(param)) {
-            sessionStorage.setItem(param, utmParams.get(param));
-        }
+      if (utmParams.has(param)) {
+        sessionStorage.setItem(param, utmParams.get(param));
+      }
     });
 
     window.addEventListener('DOMContentLoaded', () => {
-        ['utm_source', 'utm_medium', 'utm_campaign'].forEach(param => {
-            const input = document.getElementById(param);
-            if (input) {
-                input.value = sessionStorage.getItem(param) || 'organico';
+      ['utm_source', 'utm_medium', 'utm_campaign'].forEach(param => {
+        const input = document.getElementById(param);
+        if (input) {
+          input.value = sessionStorage.getItem(param) || 'organico';
+        }
+      });
+
+      // ── Lazy-Autoplay dos Vídeos ──
+      function initLazyVideos() {
+        const videos = document.querySelectorAll('.galeria-placeholder video, .com-photo video');
+        console.log("[Lazy Videos] Inicializando IntersectionObserver...", { total: videos.length });
+
+        if ('IntersectionObserver' in window) {
+          const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              const video = entry.target;
+              if (entry.isIntersecting) {
+                console.log("[Lazy Videos] Play:", video.querySelector('source')?.src || video.src);
+                video.preload = 'auto';
+                video.play().catch(err => {
+                  console.warn("[Lazy Videos] Play bloqueado automaticamente:", err);
+                });
+              } else {
+                console.log("[Lazy Videos] Pause:", video.querySelector('source')?.src || video.src);
+                video.pause();
+              }
+            });
+          }, {
+            rootMargin: '300px 0px', // Inicia o carregamento/play um pouco antes de entrar na tela
+            threshold: 0.1
+          });
+
+          videos.forEach(video => {
+            video.preload = 'none';
+            videoObserver.observe(video);
+          });
+        } else {
+          // Fallback simples para navegadores antigos
+          videos.forEach(video => {
+            video.preload = 'auto';
+            video.autoplay = true;
+            video.muted = true;
+          });
+        }
+      }
+      initLazyVideos();
+
+      // ── Sincronização dos Cards de Lotes com o Dropdown ──
+      function initLotesSync() {
+        const selectLote = document.getElementById('lote');
+        const loteCards = document.querySelectorAll('.lote-card');
+
+        console.log("[Lotes Sync] Inicializando sincronização...", { selectLote, totalCards: loteCards.length });
+
+        if (selectLote && loteCards.length > 0) {
+          function updateSelectedCards(selectedValue) {
+            console.log("[Lotes Sync] Atualizando cards selecionados para o lote:", selectedValue);
+            loteCards.forEach(card => {
+              const dataLote = card.getAttribute('data-lote');
+              if (dataLote) {
+                const lotesList = dataLote.split(',');
+                if (selectedValue && lotesList.includes(selectedValue)) {
+                  card.classList.add('lote-selecionado');
+                  console.log("[Lotes Sync] Card destacado:", dataLote);
+                } else {
+                  card.classList.remove('lote-selecionado');
+                }
+              }
+            });
+          }
+
+          loteCards.forEach(card => {
+            if (card.classList.contains('lote-vendido')) return;
+
+            card.addEventListener('click', () => {
+              const dataLote = card.getAttribute('data-lote');
+              console.log("[Lotes Sync] Card de lote clicado:", dataLote);
+              if (dataLote) {
+                const firstLote = dataLote.split(',')[0];
+                selectLote.value = firstLote;
+                selectLote.dispatchEvent(new Event('change'));
+
+                const ctaSection = document.getElementById('cta');
+                if (ctaSection) {
+                  console.log("[Lotes Sync] Rolando tela suavemente até a seção #cta");
+                  ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }
+            });
+          });
+
+          selectLote.addEventListener('change', (e) => {
+            updateSelectedCards(e.target.value);
+          });
+
+          updateSelectedCards(selectLote.value);
+        } else {
+          console.warn("[Lotes Sync] Falha ao inicializar. Elemento select ou cards de lote não encontrados no DOM.");
+        }
+      }
+
+      // ── Resolução de Dead Clicks (Cliques Inativos) ──
+      function initDeadClicksResolver() {
+        const ctaSection = document.getElementById('cta');
+
+        // 1. Galeria, Amenities e Pontos de Localização rolam para o CTA
+        const targetElements = document.querySelectorAll('.galeria-item, .amenity-item, .loc-point, .loc-map-area');
+        targetElements.forEach(el => {
+          el.addEventListener('click', (e) => {
+            if (e.target.tagName !== 'A' && ctaSection) {
+              e.preventDefault();
+              ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
+          });
         });
 
-        // ── Lazy-Autoplay dos Vídeos ──
-        function initLazyVideos() {
-            const videos = document.querySelectorAll('.galeria-placeholder video, .com-photo video');
-            console.log("[Lazy Videos] Inicializando IntersectionObserver...", { total: videos.length });
-            
-            if ('IntersectionObserver' in window) {
-                const videoObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        const video = entry.target;
-                        if (entry.isIntersecting) {
-                            console.log("[Lazy Videos] Play:", video.querySelector('source')?.src || video.src);
-                            video.preload = 'auto';
-                            video.play().catch(err => {
-                                console.warn("[Lazy Videos] Play bloqueado automaticamente:", err);
-                            });
-                        } else {
-                            console.log("[Lazy Videos] Pause:", video.querySelector('source')?.src || video.src);
-                            video.pause();
-                        }
-                    });
-                }, {
-                    rootMargin: '300px 0px', // Inicia o carregamento/play um pouco antes de entrar na tela
-                    threshold: 0.1
-                });
-
-                videos.forEach(video => {
-                    video.preload = 'none';
-                    videoObserver.observe(video);
-                    
-                    // Adiciona clique para alternar play/pause manualmente
-                    video.style.cursor = 'pointer';
-                    video.addEventListener('click', () => {
-                        if (video.paused) {
-                            video.play();
-                        } else {
-                            video.pause();
-                        }
-                    });
-                });
-            } else {
-                // Fallback simples para navegadores antigos
-                videos.forEach(video => {
-                    video.preload = 'auto';
-                    video.autoplay = true;
-                    video.muted = true;
-                });
-            }
+        // 2. Seção do Consultor direciona para o WhatsApp comercial
+        const consulInner = document.querySelector('.consul-inner');
+        if (consulInner) {
+          consulInner.addEventListener('click', (e) => {
+            e.preventDefault();
+            const waLink = document.getElementById('wa-cta-link');
+            const url = waLink ? waLink.href : "https://wa.me/551971237841?text=Olá,%20tenho%20interesse%20em%20conhecer%20o%20EntreVerdes.";
+            window.open(url, '_blank');
+          });
         }
-        initLazyVideos();
+      }
 
-        // ── Sincronização dos Cards de Lotes com o Dropdown ──
-        function initLotesSync() {
-            const selectLote = document.getElementById('lote');
-            const loteCards = document.querySelectorAll('.lote-card');
-            
-            console.log("[Lotes Sync] Inicializando sincronização...", { selectLote, totalCards: loteCards.length });
-            
-            if (selectLote && loteCards.length > 0) {
-                function updateSelectedCards(selectedValue) {
-                    console.log("[Lotes Sync] Atualizando cards selecionados para o lote:", selectedValue);
-                    loteCards.forEach(card => {
-                        const dataLote = card.getAttribute('data-lote');
-                        if (dataLote) {
-                            const lotesList = dataLote.split(',');
-                            if (selectedValue && lotesList.includes(selectedValue)) {
-                                card.classList.add('lote-selecionado');
-                                console.log("[Lotes Sync] Card destacado:", dataLote);
-                            } else {
-                                card.classList.remove('lote-selecionado');
-                            }
-                        }
-                    });
-                }
-
-                loteCards.forEach(card => {
-                    if (card.classList.contains('lote-vendido')) return;
-
-                    card.addEventListener('click', () => {
-                        const dataLote = card.getAttribute('data-lote');
-                        console.log("[Lotes Sync] Card de lote clicado:", dataLote);
-                        if (dataLote) {
-                            const firstLote = dataLote.split(',')[0];
-                            selectLote.value = firstLote;
-                            selectLote.dispatchEvent(new Event('change'));
-                            
-                            const ctaSection = document.getElementById('cta');
-                            if (ctaSection) {
-                                console.log("[Lotes Sync] Rolando tela suavemente até a seção #cta");
-                                ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            }
-                        }
-                    });
-                });
-
-                selectLote.addEventListener('change', (e) => {
-                    updateSelectedCards(e.target.value);
-                });
-
-                updateSelectedCards(selectLote.value);
-            } else {
-                console.warn("[Lotes Sync] Falha ao inicializar. Elemento select ou cards de lote não encontrados no DOM.");
-            }
-        }
-
-        if (document.readyState !== 'loading') {
-            initLotesSync();
-        } else {
-            document.addEventListener('DOMContentLoaded', initLotesSync);
-        }
+      if (document.readyState !== 'loading') {
+        initLotesSync();
+        initDeadClicksResolver();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => {
+          initLotesSync();
+          initDeadClicksResolver();
+        });
+      }
     });
   </script>
 </body>
