@@ -1057,9 +1057,12 @@
     }
 
     .lote-card.lote-vendido {
-      opacity: 0.45;
       pointer-events: none;
       position: relative;
+    }
+
+    .lote-card.lote-vendido > * {
+      opacity: 0.45;
     }
 
     .lote-card.lote-vendido::after {
@@ -1067,8 +1070,8 @@
       position: absolute;
       top: 32px;
       right: 24px;
-      background: rgba(232, 89, 60, 0.15);
-      color: var(--coral);
+      background: var(--coral);
+      color: var(--branco);
       border: 1px solid var(--coral);
       font-family: var(--font-sans);
       font-size: 10px;
@@ -1076,6 +1079,7 @@
       padding: 4px 8px;
       letter-spacing: 0.1em;
       border-radius: 2px;
+      opacity: 1 !important;
     }
 
     .lote-highlight {
